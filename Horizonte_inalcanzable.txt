@@ -1,0 +1,512 @@
+\documentclass[
+aps,
+prd,
+reprint,
+superscriptaddress,
+nofootinbib,
+amsmath,
+amssymb
+]{revtex4-2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{bm}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{El horizonte de sucesos como meta inalcanzable: una tensión temporal en agujeros negros evaporantes}
+
+\author{Rubén Roig Pallarés}
+
+\date{\today}
+
+\begin{abstract}
+Se presenta un experimento mental simplificado sobre un objeto compacto idealizado de tipo agujero negro evaporante. El objetivo no es resolver la dinámica completa de un agujero negro físico, sino aislar una tensión temporal concreta entre dos descripciones: la de un reloj externo asociado a un observador asintótico y la de un reloj interno en caída libre. Se considera una masa inicial $M_0=10^{12}\,\mathrm{kg}$ y se introduce la escala de evaporación semiclásica de Hawking. La trayectoria del reloj de prueba se calcula, como hipótesis simplificadora, usando la geometría de Schwarzschild fija asociada a $M_0$. En esa geometría, el reloj en caída alcanza el radio de Schwarzschild en un tiempo propio finito, mientras que el tiempo externo de Schwarzschild asignado al cruce exacto del horizonte diverge. Como la evaporación semiclásica ocurre en un tiempo externo finito, aparece el ordenamiento $T_{\mathrm{evap}}<T_{\infty,h}$, donde $T_{\infty,h}\rightarrow\infty$. El resultado no se interpreta como una refutación de los horizontes en soluciones clásicas idealizadas, sino como una tensión conceptual al extrapolar la imagen de un horizonte de eventos permanente a agujeros negros físicos evaporantes. Se argumenta que, para este tipo de objetos, puede ser más prudente hablar de horizonte aparente, radio gravitacional efectivo o cuasi-horizonte transitorio.
+\end{abstract}
+
+\maketitle
+
+\section{Introducción}
+
+La imagen clásica de un agujero negro de Schwarzschild contiene una propiedad conocida: un observador en caída libre puede cruzar el horizonte de eventos en un tiempo propio finito, mientras que un observador estacionario lejano, usando el tiempo coordenado de Schwarzschild, nunca asigna un tiempo finito al evento exacto de cruce. En la solución clásica eterna y no evaporante, esta diferencia se entiende como una característica de la elección de coordenadas \cite{Schwarzschild1916,MTW1973,Wald1984,Poisson2004}.
+
+Sin embargo, un agujero negro físico no debería identificarse sin más con la solución de Schwarzschild eterna. La solución de Schwarzschild es estática, no evapora y representa una idealización matemática muy útil, pero incompleta si se pretende describir un objeto natural de masa finita. Cuando se incorpora la evaporación de Hawking, la masa del agujero negro disminuye y el tiempo total de evaporación es finito para un observador externo asintótico \cite{Hawking1974,Hawking1975,Page1976}.
+
+El presente trabajo debe entenderse como un ejercicio mental de carácter conceptual y divulgativo. No se pretende resolver la dinámica completa de un agujero negro evaporante, sino estudiar una tensión concreta que aparece al comparar el tiempo propio de un reloj en caída libre con el tiempo externo de un observador asintótico.
+
+La motivación es formular el modelo mínimo necesario para hacer visible esa tensión. Para ello se conserva la cinemática sencilla de Schwarzschild para el reloj en caída, pero se introduce la escala de evaporación semiclásica de Hawking como una propiedad inevitable de un agujero negro físico de masa finita. Esta combinación no se presenta como una solución final, sino como una herramienta para formular con claridad el problema.
+
+Si el cruce exacto del horizonte queda desplazado a $T_\infty\rightarrow\infty$ para el observador externo, mientras que la evaporación completa ocurre en un $T_\infty$ finito, entonces la imagen de un horizonte de eventos permanente debe tratarse con cautela cuando se aplica a objetos compactos evaporantes.
+
+\section{Modelo idealizado y relojes del experimento}
+
+Consideremos un espacio-tiempo asintóticamente plano que contiene un objeto compacto idealizado, sin rotación y sin carga, con masa inicial
+
+\begin{equation}
+M_0 = 10^{12}\,\mathrm{kg}.
+\end{equation}
+
+El experimento comienza después de que el objeto compacto se haya formado. Por tanto, no se estudia aquí el proceso de colapso original ni la radiación emitida durante la formación. En el tiempo inicial del experimento,
+
+\begin{equation}
+T_\infty=0,
+\end{equation}
+
+se supone que la masa total medida desde el exterior es
+
+\begin{equation}
+M_{\mathrm{ADM}}=M_{\mathrm{Bondi}}=M_0,
+\end{equation}
+
+donde $M_{\mathrm{ADM}}$ representa la masa total Arnowitt-Deser-Misner medida en el infinito espacial, y $M_{\mathrm{Bondi}}$ representa la masa asociada al sistema gravitante medida desde el infinito nulo \cite{ADM1962,Bondi1962,Sachs1962}.
+
+El balance energético externo puede escribirse como
+
+\begin{equation}
+M_{\mathrm{ADM}}=
+M_{\mathrm{Bondi}}(T_\infty)
++
+\frac{E_{\mathrm{rad}}(T_\infty)}{c^2},
+\label{eqADMBondiBalance}
+\end{equation}
+
+donde $E_{\mathrm{rad}}(T_\infty)$ es la energía radiativa acumulada que ha escapado hacia el exterior.
+
+En este experimento aparecen dos relojes conceptualmente distintos:
+
+\begin{enumerate}
+\item Un reloj externo, asociado a un observador asintótico, que ordena los eventos mediante el tiempo $T_\infty$.
+\item Un reloj interno de prueba, que cae radialmente hacia el objeto compacto y mide su propio tiempo $\tau$.
+\end{enumerate}
+
+El objetivo del artículo es comparar lo que estos dos relojes asignan al mismo proceso físico: la aproximación de un objeto de prueba al radio gravitacional del objeto compacto.
+
+\section{Radio gravitacional y escala de evaporación}
+
+Para una masa $M_0$, el radio de Schwarzschild asociado es \cite{Schwarzschild1916,MTW1973,Wald1984}
+
+\begin{equation}
+r_s =
+\frac{2GM_0}{c^2}.
+\label{eqSchwarzschildRadius}
+\end{equation}
+
+Para $M_0=10^{12}\,\mathrm{kg}$, se obtiene
+
+\begin{equation}
+r_s \approx 1.485\times10^{-15}\,\mathrm{m}.
+\end{equation}
+
+El tiempo de evaporación semiclásico estándar de un agujero negro de Schwarzschild no cargado y no rotante se obtiene a partir de la radiación de Hawking, despreciando detalles de factores de cuerpo gris y especies de partículas emitidas \cite{Hawking1975,Page1976,Traschen2000}. En esta aproximación,
+
+\begin{equation}
+T_{\mathrm{evap}}=
+\frac{5120\pi G^2 M_0^3}{\hbar c^4}.
+\label{eqEvapTime}
+\end{equation}
+
+Para $M_0=10^{12}\,\mathrm{kg}$, esto da aproximadamente
+
+\begin{equation}
+T_{\mathrm{evap}}
+\approx
+8.41\times10^{19}\,\mathrm{s},
+\end{equation}
+
+equivalente a
+
+\begin{equation}
+T_{\mathrm{evap}}
+\approx
+2.67\times10^{12}\,\mathrm{yr}.
+\end{equation}
+
+Aunque este tiempo es enormemente largo en escalas humanas, el punto conceptual importante es que es finito en el tiempo externo $T_\infty$.
+
+En una descripción dinámica más completa, el radio gravitacional efectivo debería tratarse mediante una geometría no estacionaria, por ejemplo en aproximaciones tipo Vaidya o mediante horizontes aparentes, de atrapamiento o dinámicos \cite{Vaidya1951,Hayward1994,AshtekarKrishnan2004,Visser2014}. De forma heurística, puede escribirse como
+
+\begin{equation}
+r_h(T_\infty)=
+\frac{2G M_{\mathrm{Bondi}}(T_\infty)}{c^2}.
+\label{eqEffectiveHorizon}
+\end{equation}
+
+En el presente trabajo, sin embargo, se mantiene $M_0$ fija en el cálculo de la caída para aislar la tensión temporal de la forma más simple posible.
+
+\section{Caso I: reloj liberado desde el reposo local}
+
+Introducimos un reloj de prueba situado inicialmente en
+
+\begin{equation}
+r_0=10r_s.
+\end{equation}
+
+El reloj se encuentra inicialmente en reposo respecto a un observador estático local situado en $r_0$, y después se libera en caída libre radial hacia el objeto compacto.
+
+En una geometría de Schwarzschild fija, la caída radial libre de una partícula de prueba puede obtenerse a partir de las geodésicas temporales de Schwarzschild \cite{MTW1973,Wald1984,Poisson2004}. Para el caso de liberación desde el reposo local, el tiempo propio del reloj en caída como función del radio viene dado por
+
+\begin{equation}
+\tau(r)=
+\sqrt{\frac{r_0^3}{c^2r_s}}
+\left[
+\arccos\sqrt{\frac{r}{r_0}}
++
+\sqrt{
+\frac{r}{r_0}
+\left(
+1-\frac{r}{r_0}
+\right)}
+\right].
+\label{eqProperTimeRadialFall}
+\end{equation}
+
+Evaluando esta expresión en $r=r_s$, se obtiene
+
+\begin{equation}
+\tau_h
+\approx
+2.43\times10^{-22}\,\mathrm{s}.
+\label{eqProperHorizonTime}
+\end{equation}
+
+Por tanto, en la descripción del reloj interno, el radio de Schwarzschild se alcanza en un tiempo propio finito.
+
+La relación entre el tiempo externo de Schwarzschild y el tiempo propio del reloj en caída puede escribirse como
+
+\begin{equation}
+\frac{dT_\infty}{d\tau}=
+\frac{\sqrt{1-r_s/r_0}}{1-r_s/r}.
+\label{eqTimeDilationRest}
+\end{equation}
+
+Cuando $r\rightarrow r_s$, el denominador tiende a cero. Por tanto,
+
+\begin{equation}
+\frac{dT_\infty}{d\tau}\rightarrow\infty.
+\end{equation}
+
+En consecuencia, en la descripción de Schwarzschild fija,
+
+\begin{equation}
+T_{\infty,h}\rightarrow\infty.
+\label{eqExternalHorizonTime}
+\end{equation}
+
+El mismo evento que el reloj interno alcanza en tiempo propio finito queda desplazado a tiempo externo infinito para el observador asintótico que usa la coordenada temporal de Schwarzschild.
+
+\section{Caso II: reloj lanzado con velocidad relativista}
+
+El caso anterior podría parecer dependiente de una elección inicial particular: liberar el reloj desde el reposo local. Para comprobar si la tensión temporal depende de esa elección, consideremos ahora un segundo reloj de prueba lanzado radialmente hacia dentro desde el mismo radio inicial $r_0$, pero con una velocidad local $v_0$ medida por un observador estático situado en $r_0$.
+
+En una geometría de Schwarzschild fija, la conservación de la energía específica para geodésicas radiales permite escribir \cite{MTW1973,Wald1984,Poisson2004}
+
+\begin{equation}
+e=
+\gamma_0
+\sqrt{1-\frac{r_s}{r_0}},
+\label{eqSpecificEnergy}
+\end{equation}
+
+donde
+
+\begin{equation}
+\gamma_0=
+\frac{1}{\sqrt{1-v_0^2/c^2}}
+\end{equation}
+
+es el factor de Lorentz asociado a la velocidad inicial local.
+
+Para una geodésica radial de caída libre, las ecuaciones pueden escribirse como
+
+\begin{equation}
+\frac{dr}{d\tau}=
+-c
+\sqrt{
+e^2-\left(1-\frac{r_s}{r}\right)
+},
+\label{eqRadialVelocityRel}
+\end{equation}
+
+y
+
+\begin{equation}
+\frac{dT_\infty}{d\tau}=
+\frac{e}{1-r_s/r}.
+\label{eqTimeDilationRel}
+\end{equation}
+
+Dividiendo ambas expresiones se obtiene
+
+\begin{equation}
+\frac{dT_\infty}{dr}=
+\frac{
+e
+}{
+c\left(1-r_s/r\right)
+\sqrt{
+e^2-\left(1-\frac{r_s}{r}\right)
+}
+}.
+\label{eqExternalRadialDerivative}
+\end{equation}
+
+Cuando $r\rightarrow r_s$, se cumple
+
+\begin{equation}
+1-\frac{r_s}{r}\rightarrow 0,
+\end{equation}
+
+mientras que
+
+\begin{equation}
+\sqrt{
+e^2-\left(1-\frac{r_s}{r}\right)
+}
+\rightarrow e.
+\end{equation}
+
+Por tanto, cerca de $r_s$,
+
+\begin{equation}
+\frac{dT_\infty}{dr}
+\sim
+\frac{1}{
+c\left(1-r_s/r\right)
+}.
+\label{eqLogDivergence}
+\end{equation}
+
+Esta expresión produce de nuevo una divergencia logarítmica del tiempo externo al aproximarse al radio de Schwarzschild.
+
+El aumento de la velocidad inicial reduce el tiempo propio necesario para alcanzar $r_s$. Sin embargo, no convierte el cruce exacto del horizonte en un evento de tiempo externo finito dentro de la coordenada de Schwarzschild. Incluso si el reloj es lanzado hacia dentro con una velocidad cercana a la de la luz, el observador externo sigue asignando
+
+\begin{equation}
+T_{\infty,h}\rightarrow\infty.
+\end{equation}
+
+Este segundo caso muestra que la tensión temporal no depende simplemente de haber soltado el reloj lentamente. La divergencia externa aparece asociada a la estructura temporal de la geometría de Schwarzschild fija cerca de $r_s$.
+
+\section{Ordenamiento temporal externo}
+
+El observador asintótico ordena dos eventos usando el mismo tiempo externo $T_\infty$:
+
+\begin{enumerate}
+\item La evaporación completa del objeto compacto.
+\item El cruce exacto del radio de Schwarzschild por parte del reloj de prueba.
+\end{enumerate}
+
+Según la escala semiclásica de evaporación,
+
+\begin{equation}
+T_{\mathrm{evap}}
+\approx
+8.41\times10^{19}\,\mathrm{s},
+\end{equation}
+
+que es finito.
+
+En cambio, según la coordenada temporal externa de Schwarzschild aplicada al cruce exacto del horizonte,
+
+\begin{equation}
+T_{\infty,h}\rightarrow\infty.
+\end{equation}
+
+Por tanto, en el ordenamiento temporal externo del modelo simplificado,
+
+\begin{equation}
+T_{\mathrm{evap}}<T_{\infty,h}.
+\label{eqKeyOrdering}
+\end{equation}
+
+Esta es la relación central del experimento mental. El reloj interno alcanza el radio gravitacional en tiempo propio finito, pero el reloj externo no asigna un tiempo finito al cruce exacto. Mientras tanto, la evaporación semiclásica sí posee una escala finita en el mismo tiempo externo usado para describir el balance energético.
+
+\section{Hipótesis simplificadora y alcance divulgativo}
+
+El modelo utilizado en este trabajo es deliberadamente simple. La trayectoria del reloj de prueba se calcula usando la geometría de Schwarzschild fija asociada a la masa inicial $M_0$, mientras que la evaporación se introduce únicamente mediante la escala temporal semiclásica estándar de Hawking. Esta elección no pretende ocultar la naturaleza dinámica de un agujero negro evaporante, sino aislar el argumento temporal de la forma más clara posible.
+
+La simplificación tiene una motivación didáctica. En una primera aproximación, se desea comparar dos relojes: el reloj interno, que mide el tiempo propio $\tau$ del objeto en caída, y el reloj externo, que mide el tiempo $T_\infty$ del observador asintótico. Mantener fija la geometría de Schwarzschild permite mostrar con claridad que el reloj interno alcanza el radio gravitacional en tiempo propio finito, mientras que el reloj externo desplaza el cruce exacto del horizonte a $T_\infty\rightarrow\infty$.
+
+Excluir la evaporación del cálculo de la trayectoria interna también puede entenderse como una elección conservadora respecto al argumento. Si se permitiera que la masa gravitante disminuyera durante la caída, el radio gravitacional efectivo
+
+\begin{equation}
+r_h(T_\infty)=
+\frac{2G M_{\mathrm{Bondi}}(T_\infty)}{c^2}
+\end{equation}
+
+no permanecería fijo, sino que se contraería. En tal caso, el reloj interno no caería hacia una superficie estática situada en $r_s$, sino hacia una superficie dinámica que retrocede a medida que el objeto compacto evapora. Esto no adelantaría el cruce en la descripción externa; al contrario, tendería a desplazar el posible cruce hacia condiciones más restrictivas. Desde la perspectiva del reloj interno, la inclusión de esta contracción podría retrasar el encuentro con el radio gravitacional efectivo, o incluso modificar la pregunta de si tal encuentro ocurre en una geometría evaporante completa.
+
+Por esta razón, mantener un radio de Schwarzschild fijo no favorece artificialmente la conclusión del argumento. Más bien concede al reloj interno el caso más simple para alcanzar el radio gravitacional: una superficie fija que no se contrae durante la caída. Si incluso bajo esta hipótesis conservadora el cruce exacto queda asignado a tiempo externo infinito, mientras que la evaporación ocurre en tiempo externo finito, la tensión temporal aparece ya en el ejemplo más sencillo.
+
+En capítulos posteriores, esta idealización deberá ser sustituida por un modelo dinámico en el que $M_{\mathrm{Bondi}}(T_\infty)$ disminuya explícitamente y el radio gravitacional efectivo evolucione durante la caída \cite{Vaidya1951,Hayward1994,AshtekarKrishnan2004,Visser2014}. Una extensión especialmente relevante consistirá en analizar la evaporación desde el punto de vista del reloj interno, donde la comparación ya no será entre la caída hacia un radio fijo y un reloj externo, sino entre la evolución propia del reloj y la evolución dinámica de la geometría que lo rodea.
+
+\section{Interpretación física}
+
+El resultado central del experimento mental es el ordenamiento
+
+\begin{equation}
+T_{\mathrm{evap}}<T_{\infty,h}.
+\end{equation}
+
+Esta relación expresa una tensión entre dos descripciones del mismo espacio-tiempo. Para el reloj interno, el radio gravitacional se alcanza en un tiempo propio finito. Para el reloj externo, el cruce exacto del horizonte queda desplazado a $T_\infty\rightarrow\infty$. Sin embargo, la evaporación semiclásica completa del objeto compacto ocurre en un tiempo externo finito.
+
+El punto físico relevante es que el reloj interno y el reloj externo no pertenecen a dos realidades separadas. Ambos forman parte del mismo espacio-tiempo. Por tanto, aunque cada uno use una parametrización temporal distinta, la descripción global debe ser compatible con la evolución energética del sistema. En la descripción externa, la energía que origina la curvatura y que sostendría el posible horizonte se ha radiado antes de que el cruce exacto del horizonte pueda ser incorporado al registro temporal externo.
+
+Dicho de otro modo, el reloj interno puede experimentar una caída hacia el radio gravitacional en un tiempo propio extremadamente breve, pero el evento de cruce exacto no aparece en la historia externa antes de la evaporación completa. La masa $M_{\mathrm{Bondi}}(T_\infty)$, que determina el radio gravitacional efectivo, disminuye durante un intervalo finito de $T_\infty$. Al final de ese intervalo, la energía asociada al objeto compacto ha sido transferida a la radiación saliente según el balance
+
+\begin{equation}
+M_{\mathrm{ADM}}=
+M_{\mathrm{Bondi}}(T_\infty)
++
+\frac{E_{\mathrm{rad}}(T_\infty)}{c^2}.
+\end{equation}
+
+Por tanto, en el marco de este experimento mental, la geometría que produciría el horizonte deja de estar disponible antes de que el observador externo pueda asignar un cruce de horizonte en tiempo finito.
+
+Esta es la tensión principal que el ejemplo pretende hacer visible. No se trata simplemente de decir que Schwarzschild eterno no es realista porque no evapora; eso ya está asumido desde el inicio. El punto más específico es que, incluso usando un caso conservador donde el radio de Schwarzschild se mantiene fijo para facilitar el análisis del reloj interno, el ordenamiento externo sigue colocando la evaporación antes del cruce exacto del horizonte.
+
+La interpretación natural es que un agujero negro físico evaporante no debería describirse sin más como una versión eterna de Schwarzschild a la que se añade radiación al final. La evaporación afecta precisamente a la masa que genera la curvatura y, por tanto, a la superficie que se intenta identificar como horizonte. En este contexto, resulta más adecuado pensar en un radio gravitacional efectivo, un horizonte aparente, un horizonte de atrapamiento o una configuración de cuasi-horizonte de vida finita \cite{Hayward1994,AshtekarKrishnan2004,Visser2014,Bardeen2014}.
+
+En esta lectura, el objeto compacto puede comportarse externamente como un agujero negro durante un intervalo extremadamente largo. Puede producir un desplazamiento al rojo enorme y una región exterior prácticamente indistinguible de la de Schwarzschild durante gran parte de su vida. Sin embargo, el experimento mental sugiere que la existencia de una evaporación completa en tiempo externo finito tensiona la idea de un cruce de horizonte permanente incorporado a la historia externa del espacio-tiempo.
+
+\section{Discusión}
+
+La tensión señalada aquí surge de combinar tres ingredientes:
+
+\begin{enumerate}
+\item Una trayectoria de caída libre calculada en una geometría de Schwarzschild fija.
+\item Una evaporación completa en tiempo externo finito.
+\item Un único reloj externo $T_\infty$ usado para ordenar evaporación y cruce.
+\end{enumerate}
+
+En una interpretación puramente clásica, la divergencia del tiempo de Schwarzschild no impide que el reloj en caída cruce el horizonte en tiempo propio finito. Sin embargo, cuando se introduce evaporación, la pregunta cambia. Ya no se trata solo de si el reloj interno cruza $r_s$ en su propio tiempo, sino de si la geometría que sostendría un horizonte permanente sigue existiendo hasta que el observador externo pueda asignar el evento de cruce.
+
+El presente argumento aísla esa pregunta en su forma más simple. Al mantener fija la geometría para el reloj interno, se concede al cruce el escenario más favorable dentro del modelo. Aun así, el ordenamiento externo sitúa la evaporación completa antes del cruce exacto del horizonte.
+
+La diferencia entre horizonte de eventos, horizonte aparente y radio gravitacional efectivo es central. En Schwarzschild estático, estas nociones coinciden. En una geometría dinámica o evaporante, no tienen por qué coincidir, y por ello los horizontes cuasilocales suelen ser más adecuados para describir procesos de crecimiento o evaporación \cite{Hayward1994,AshtekarKrishnan2004,Visser2014,Nielsen2008}.
+
+\section{Conclusión}
+
+Se ha formulado un experimento mental simplificado para comparar el tiempo de un reloj interno en caída libre con el tiempo de un reloj externo asintótico en el contexto de un objeto compacto evaporante.
+
+Para una masa inicial
+
+\begin{equation}
+M_0=10^{12}\,\mathrm{kg},
+\end{equation}
+
+el tiempo de evaporación semiclásico es finito:
+
+\begin{equation}
+T_{\mathrm{evap}}
+\approx
+8.41\times10^{19}\,\mathrm{s}.
+\end{equation}
+
+Un reloj de prueba liberado desde $r_0=10r_s$ alcanza el radio de Schwarzschild en un tiempo propio finito,
+
+\begin{equation}
+\tau_h
+\approx
+2.43\times10^{-22}\,\mathrm{s},
+\end{equation}
+
+pero el tiempo externo de Schwarzschild correspondiente diverge:
+
+\begin{equation}
+T_{\infty,h}\rightarrow\infty.
+\end{equation}
+
+El mismo comportamiento cualitativo aparece si el reloj se lanza radialmente hacia dentro con velocidad relativista. La velocidad inicial reduce el tiempo propio de caída, pero no elimina la divergencia del tiempo externo de Schwarzschild en el cruce exacto del horizonte.
+
+Por tanto, dentro del modelo simplificado,
+
+\begin{equation}
+T_{\mathrm{evap}}<T_{\infty,h}.
+\end{equation}
+
+Este ordenamiento no demuestra por sí solo que el cruce de horizontes sea imposible en una teoría completa de agujeros negros evaporantes. Sí sugiere, sin embargo, que la imagen de un horizonte de eventos permanente, heredada de Schwarzschild eterno, puede no ser la descripción más adecuada para un agujero negro físico de masa finita que se evapora en un tiempo externo finito.
+
+La conclusión prudente es que los agujeros negros naturales deberían analizarse mediante modelos dinámicos, donde la masa, el radio gravitacional efectivo y la estructura causal evolucionen conjuntamente. El presente artículo constituye un primer paso conceptual hacia esa formulación.
+
+\section*{Puntos abiertos}
+
+El argumento presentado es deliberadamente limitado. Los siguientes puntos requieren desarrollo posterior:
+
+\begin{enumerate}
+\item Sustituir la geometría de Schwarzschild fija por una métrica evaporante dinámica.
+\item Definir con precisión si $r_h(T_\infty)$ representa un horizonte aparente, un horizonte atrapado, un horizonte dinámico o solo un radio gravitacional efectivo.
+\item Evaluar si una partícula o capa en caída permanece fuera de $r_h(T_\infty)$ para todo tiempo externo finito.
+\item Incluir la retroacción de la radiación de Hawking sobre la geometría.
+\item Analizar la evaporación desde el punto de vista del reloj interno.
+\item Separar rigurosamente los efectos de coordenadas de las afirmaciones invariantes sobre formación de horizontes.
+\item Determinar si el argumento cuestiona únicamente horizontes de eventos globales o también superficies atrapadas transitorias.
+\end{enumerate}
+
+\section{Extensión especulativa: quasi-agujeros, información y holografía}
+
+La interpretación anterior sugiere algunas consecuencias posibles si se toma en serio el ordenamiento temporal externo del experimento mental. Esta sección es deliberadamente especulativa: no pretende derivar un nuevo modelo completo de agujero negro, sino señalar direcciones conceptuales que podrían explorarse en trabajos posteriores. Ideas relacionadas aparecen en la literatura sobre agujeros negros incipientes, colapso semiclásico, objetos compactos exóticos y modelos sin horizonte de eventos permanente \cite{Vachaspati2007,Barcelo2008,MazurMottola2004,CardosoPani2019,Bardeen2014,Ashtekar2020}.
+
+\subsection{Partículas absorbidas y crecimiento del objeto compacto}
+
+Hasta ahora, el reloj de prueba se ha tratado como una partícula idealizada cuya masa no modifica la geometría. Sin embargo, una partícula real que cae hacia el objeto compacto aporta energía al sistema gravitante. En una descripción clásica, esa energía contribuiría a la masa total y, por tanto, al tamaño del radio gravitacional efectivo \cite{MTW1973,Wald1984}.
+
+Desde la perspectiva del argumento desarrollado aquí, esto sugiere una reinterpretación de la absorción. Si el cruce exacto del horizonte queda desplazado a $T_\infty\rightarrow\infty$, entonces la partícula no se incorpora al interior de un horizonte ya cruzado en un tiempo externo finito. Más bien, su energía pasa a formar parte de la configuración gravitante observada externamente, aumentando temporalmente la masa efectiva del sistema y modificando la región de gran desplazamiento al rojo.
+
+En esta lectura, el crecimiento del objeto compacto no se interpreta necesariamente como la acumulación de partículas dentro de una singularidad, sino como la evolución de una configuración extremadamente compacta vista desde el exterior. La partícula queda cada vez más desplazada al rojo y su contribución energética se integra en el balance externo del sistema, pero el cruce exacto del horizonte no aparece como un evento registrado en tiempo externo finito.
+
+Esto no elimina la posibilidad de que el objeto compacto se comporte externamente como un agujero negro durante tiempos extremadamente largos. Lo que cambia es la interpretación del proceso de absorción: en lugar de una entrada definitiva en una región causalmente desconectada, podría entenderse como una incorporación asintótica a una configuración de cuasi-horizonte.
+
+\subsection{Carcasa colapsante y quasi-agujero}
+
+Una extensión natural del experimento mental consiste en sustituir el agujero negro idealizado por una carcasa esférica extremadamente densa formada por partículas en caída libre. Esta carcasa puede aproximarse progresivamente a su propio radio gravitacional, generando desde el exterior una región de enorme desplazamiento al rojo. Configuraciones de este tipo están relacionadas, aunque no son idénticas, con ideas como agujeros negros incipientes, objetos ultracompactos sin horizonte, gravastars y otros objetos compactos exóticos \cite{Vachaspati2007,Barcelo2008,MazurMottola2004,CardosoPani2019}. A este tipo de configuración la llamaremos, de forma provisional, un quasi-agujero.
+
+En un quasi-agujero no existe necesariamente un horizonte de eventos ya formado. Por tanto, la radiación no tendría que interpretarse exclusivamente como radiación de Hawking emitida por un horizonte. Podría incluir radiación ordinaria producida por la materia caliente, comprimida o acelerada de la carcasa. La diferencia esencial es que dicha radiación estaría fuertemente desplazada al rojo para un observador lejano.
+
+Así, el proceso externo podría parecerse al de una evaporación extremadamente lenta: la energía escapa, pero lo hace con una tasa muy reducida debido a la dilatación temporal gravitatoria. La carcasa se aproxima a la condición de horizonte, pero la misma dilatación temporal que la hace parecer congelada también frena la emisión observada desde el exterior.
+
+Si la energía de la carcasa se radia antes de que el cruce exacto del horizonte pueda incorporarse a la historia externa del espacio-tiempo, el resultado sería análogo al obtenido en el experimento mental principal. La configuración se comportaría durante un tiempo muy largo como un agujero negro, pero sin requerir que se forme una singularidad ni un horizonte de eventos permanente.
+
+Esta posibilidad desplaza la intuición del problema. El colapso gravitatorio no tendría que entenderse únicamente como una caída inevitable hacia una singularidad espacial. También podría interpretarse como una acumulación extrema de dilatación temporal: la materia no colapsaría simplemente en el espacio, sino que quedaría progresivamente atrapada en una región donde su evolución externa se ralentiza de forma extrema.
+
+\subsection{Evaporación como irradiación frenada por dilatación temporal}
+
+Desde esta perspectiva, la evaporación puede interpretarse de manera más general como una irradiación frenada por la dilatación temporal. En el caso de un agujero negro clásico, esta irradiación se describe mediante radiación de Hawking. En el caso de un quasi-agujero sin horizonte exacto, podría tratarse de radiación ordinaria emitida por una configuración material extremadamente compacta, pero observada desde el exterior con un desplazamiento al rojo enorme \cite{Barcelo2011,Vachaspati2007}.
+
+La diferencia entre ambas imágenes podría ser menos evidente para un observador lejano de lo que parece inicialmente. En ambos casos, el objeto sería oscuro, compacto, altamente desplazado al rojo y capaz de liberar energía durante escalas temporales muy largas. La observación externa podría ser compatible con un objeto prácticamente indistinguible de un agujero negro clásico durante la mayor parte de su vida.
+
+La idea especulativa es que lo que llamamos evaporación no tenga que entenderse necesariamente como la desaparición de una singularidad oculta tras un horizonte, sino como la liberación extremadamente retardada de energía e información desde una región de gran dilatación temporal. En esta lectura, la información no tendría por qué destruirse; podría quedar codificada en grados de libertad altamente desplazados al rojo y liberarse de forma muy lenta.
+
+\subsection{Relación con información y holografía}
+
+Esta interpretación también ofrece una intuición alternativa para el problema de la pérdida de información, formulado originalmente en el contexto de la evaporación de Hawking y ampliamente debatido desde entonces \cite{Hawking1976,Page1993,UnruhWald2017}. Si nunca se forma un horizonte de eventos permanente, o si la descripción física relevante es la de un cuasi-horizonte de vida finita, entonces la información asociada a la materia en caída no queda necesariamente separada para siempre del exterior. Puede permanecer inaccesible en la práctica durante tiempos enormes, pero no destruida en principio.
+
+La diferencia es importante. Una pérdida práctica de información por desplazamiento al rojo extremo no es lo mismo que una pérdida fundamental de información por desconexión causal absoluta. En el primer caso, la información podría estar todavía presente en la configuración externa del sistema o en correlaciones muy débiles de la radiación emitida. En el segundo, la información habría quedado eliminada de la descripción accesible al exterior de forma irreversible.
+
+Esta imagen también conecta de manera sugerente con la relación entre masa, entropía y área en los agujeros negros. La entropía de Bekenstein-Hawking escala con el área del horizonte, no con el volumen encerrado \cite{Bekenstein1973,BardeenCarterHawking1973,Hawking1975}. En la interpretación especulativa propuesta aquí, esto podría entenderse intuitivamente si la configuración física relevante no es un volumen interior clásico terminado en una singularidad, sino una región exterior extremadamente compacta, similar a una carcasa o cuasi-superficie, donde los grados de libertad relevantes se organizan de forma efectiva sobre una escala de área.
+
+Esta conexión no demuestra que los agujeros negros sean literalmente carcasas materiales. Sin embargo, ofrece una imagen compatible con la intuición holográfica: la información gravitatoria relevante para el exterior podría estar codificada en una estructura efectiva de superficie, no en un volumen interno clásico \cite{Hooft1993,Susskind1995,Bousso2002,Maldacena1999}. En tal caso, un agujero negro natural no sería necesariamente una singularidad espacial oculta, sino una configuración límite del espacio-tiempo donde la acumulación de energía produce una dilatación temporal extrema, una irradiación fuertemente frenada y una descripción externa dominada por grados de libertad de área.
+
+\subsection{Resumen especulativo}
+
+Si esta línea argumental se desarrollara con éxito, la imagen resultante sería la siguiente:
+
+\begin{enumerate}
+\item Una partícula que cae hacia el objeto compacto no cruza un horizonte de eventos en tiempo externo finito, sino que contribuye a una configuración gravitante cada vez más desplazada al rojo.
+\item Un objeto ultracompacto formado por muchas partículas en caída podría comportarse externamente como un agujero negro sin requerir una singularidad clásica.
+\item La evaporación podría entenderse, al menos en parte, como irradiación retardada por dilatación temporal extrema.
+\item La información no tendría por qué perderse fundamentalmente, sino quedar muy desplazada al rojo y liberarse de forma extremadamente lenta.
+\item La relación entre masa, entropía y área sería compatible con una descripción efectiva de superficie o cuasi-horizonte, en lugar de una descripción basada en un volumen interior singular.
+\end{enumerate}
+
+Estas ideas no sustituyen a un modelo dinámico completo. Su valor en el presente trabajo es orientar la intuición: si un agujero negro natural evapora en tiempo externo finito, quizá la descripción más física no sea la de una singularidad inevitable, sino la de una región donde la energía, la radiación y la información quedan dominadas por una dilatación temporal extrema.
+
+\begin{acknowledgments}
+El autor agradece las discusiones conceptuales que motivaron la formulación de este experimento mental.
+\end{acknowledgments}
+
+\bibliographystyle{apsrev4-2}
+\bibliography{references}
+
+\end{document}
