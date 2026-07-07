@@ -1,0 +1,803 @@
+% !TeX root = Horizonte_inalcanzable.tex
+% !TeX program = pdflatex
+% !BIB program = bibtex
+\documentclass[
+aps,
+prd,
+reprint,
+superscriptaddress,
+nofootinbib,
+amsmath,
+amssymb
+]{revtex4-2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{bm}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{El horizonte de sucesos como meta inalcanzable: una tensión temporal en agujeros negros evaporantes}
+
+\author{Rubén Roig Pallarés}
+
+\date{\today}
+
+\begin{abstract}
+Se formula un experimento mental sobre un sistema gravitatorio evaporante contenido en un volumen de control asintótico. Una cantidad finita de materia colapsa y forma un objeto compacto que, en la aproximación semiclásica, pierde masa por radiación de Hawking hasta devolver al exterior la energía inicialmente depositada. Junto al colapso se considera un fotón idealizado, o ``fotón mágico'', cuya función es marcar si una trayectoria causal entrante llega a cruzar la frontera gravitacional antes de la evaporación completa. Primero se presenta una versión conservadora e intencionadamente incompleta: se combina el tiempo finito de evaporación de Hawking con la dilatación temporal de una trayectoria radial en la geometría estática de Schwarzschild. En esa aproximación, el cruce ocurre sólo en tiempo coordenado externo infinito, mientras que $T_{\mathrm{evap}}$ es finito. Después se reemplaza la geometría estática por una métrica de Vaidya saliente, donde la masa exterior es una masa de Bondi decreciente $M(u)$ y el radio aparente $r_h(u)=2GM(u)/c^2$ retrocede durante la evaporación. En este marco dinámico se demuestra que una trayectoria nula radial entrante, que acota causalmente a cualquier partícula masiva, no puede tener un primer cruce finito con $r_h(u)$ antes de $T_{\mathrm{evap}}$. El resultado no se presenta como una solución completa de la evaporación semiclásica, sino como una proposición causal mínima: si la energía exterior y la trayectoria entrante se describen en un mismo espacio-tiempo evaporante, el horizonte aparente se retira antes de ser alcanzado por una trayectoria exterior futura.
+\end{abstract}
+
+\maketitle
+
+\section{Introducción}
+
+El presente trabajo parte de una pregunta deliberadamente simple. Supongamos un volumen de control asintótico, idealizado como una esfera suficientemente grande, dentro del cual se vierte una cantidad finita de materia. La materia colapsa y genera un objeto compacto que, en la aproximación semiclásica usual, emite radiación de Hawking y acaba devolviendo al exterior la energía inicialmente depositada \cite{Hawking1974,Hawking1975,Page1976}. La pregunta no es todavía qué ocurre con toda la información ni cuál es la geometría cuántica final, sino algo más elemental: si se deja caer una trayectoria causal desde el exterior, ¿cruza ésta la frontera gravitacional antes de que el balance energético exterior vuelva a masa residual nula?
+
+Para aislar la cuestión se introduce un ``fotón mágico''. No se trata de un mecanismo físico de señalización superlumínica desde el horizonte, sino de un marcador idealizado: si incluso una trayectoria nula radial entrante no alcanza la frontera antes de la evaporación, entonces ninguna partícula masiva exterior podrá hacerlo. El fotón mágico representa, por tanto, el caso causal límite del experimento mental.
+
+La estructura del artículo es doble. Primero se presenta un cálculo conservador, pedagógico e intencionadamente incompleto: se combina el tiempo finito de evaporación de Hawking con la dilatación temporal de Schwarzschild. Esta mezcla no es una descripción dinámica coherente de un agujero negro evaporante, pero sirve para fijar la intuición: en coordenadas externas de Schwarzschild el cruce del radio $r_s=2GM/c^2$ ocurre sólo en $t\to\infty$, mientras que $T_{\mathrm{evap}}$ es finito.
+
+Después se sustituye la geometría estática por una descripción efectiva de Vaidya saliente, adecuada para representar una región esférica cuya masa de Bondi decrece por radiación nula hacia el exterior \cite{Vaidya1951,Poisson2004}. En ese segundo modelo, el flujo de energía exterior, la contracción del radio aparente y la trayectoria entrante pertenecen al mismo espacio-tiempo. La pregunta de cruce deja de ser una extrapolación sobre un horizonte fijo y se convierte en una condición dinámica.
+
+\section{Proposición del experimento mental}
+
+Consideremos un espacio-tiempo asintóticamente plano con simetría esférica. En un instante inicial se deposita en el volumen de control una masa total $M_0$. Una vez completado el colapso idealizado, la masa medida desde el exterior puede identificarse con la masa de Bondi inicial,
+
+\begin{equation}
+M_{\mathrm{Bondi}}(0)=M_0.
+\end{equation}
+
+Durante la evaporación, el balance energético externo se escribe como
+
+\begin{equation}
+M_{\mathrm{ADM}}=
+M_{\mathrm{Bondi}}(u)
++
+\frac{E_{\mathrm{rad}}(u)}{c^2},
+\label{eqADMBondiBalance}
+\end{equation}
+
+donde $M_{\mathrm{ADM}}$ es la masa total medida en el infinito espacial y $M_{\mathrm{Bondi}}(u)$ es la masa gravitante medida en el infinito nulo \cite{ADM1962,Bondi1962,Sachs1962}. La evaporación completa corresponde, dentro de esta idealización, al límite
+
+\begin{equation}
+M_{\mathrm{Bondi}}(u)\rightarrow0
+\qquad
+\mathrm{cuando}
+\qquad
+u\rightarrow T_{\mathrm{evap}}.
+\end{equation}
+
+El experimento mental consiste en comparar dos eventos definidos desde el exterior:
+
+\begin{enumerate}
+\item el cruce de la frontera gravitacional por el fotón mágico;
+\item la desaparición de la masa de Bondi asociada al objeto compacto.
+\end{enumerate}
+
+La proposición que se quiere estudiar es:
+
+\begin{quote}
+Para un objeto compacto evaporante descrito por una masa exterior decreciente, una trayectoria causal exterior futura no alcanza el horizonte aparente antes de la evaporación completa.
+\end{quote}
+
+Los capítulos siguientes presentan primero una versión estática aproximada y luego una formulación dinámica en Vaidya.
+
+\section{Aproximación conservadora: Hawking más Schwarzschild}
+
+El primer cálculo toma dos ingredientes conocidos, aunque no formen juntos una solución autocoherente. Por un lado, la escala semiclásica de evaporación de Hawking para un agujero negro no cargado y no rotante es finita:
+
+\begin{equation}
+T_{\mathrm{evap}}=
+\frac{5120\pi G^2 M_0^3}{\hbar c^4}.
+\label{eqEvapTime}
+\end{equation}
+
+Por otro lado, si durante la caída se congela la masa exterior y se usa la métrica de Schwarzschild \cite{Schwarzschild1916,MTW1973,Wald1984},
+
+\begin{align}
+ds^2={}&
+-
+\left(
+1-\frac{r_s}{r}
+\right)c^2dt^2
++
+\left(
+1-\frac{r_s}{r}
+\right)^{-1}dr^2
++
+r^2d\Omega^2,
+\label{eqSchwarzschildMetric}
+\\
+r_s={}&
+\frac{2GM_0}{c^2}.
+\end{align}
+
+una trayectoria radial nula entrante satisface
+
+\begin{equation}
+0=
+-
+\left(
+1-\frac{r_s}{r}
+\right)c^2dt^2
++
+\left(
+1-\frac{r_s}{r}
+\right)^{-1}dr^2.
+\end{equation}
+
+Escogiendo la rama entrante,
+
+\begin{equation}
+\frac{dr}{dt}
+=
+-
+c
+\left(
+1-\frac{r_s}{r}
+\right).
+\label{eqSchwarzschildNull}
+\end{equation}
+
+La integral del tiempo externo entre un radio inicial $r_0>r_s$ y un radio $r>r_s$ es
+
+\begin{equation}
+t(r)-t_0
+=
+\frac{1}{c}
+\left[
+r_0-r
++
+r_s
+\ln
+\left(
+\frac{r_0-r_s}{r-r_s}
+\right)
+\right].
+\label{eqSchwarzschildCoordinateTime}
+\end{equation}
+
+Por tanto,
+
+\begin{equation}
+\lim_{r\rightarrow r_s^+}
+\left[
+t(r)-t_0
+\right]
+=
+\infty.
+\end{equation}
+
+En esta primera aproximación, el tiempo externo de cruce del fotón mágico es infinito:
+
+\begin{equation}
+T_{\mathrm{cruce}}^{(\mathrm{Schw})}
+=
+\infty,
+\end{equation}
+
+mientras que $T_{\mathrm{evap}}$ en \eqref{eqEvapTime} es finito para toda masa inicial finita $M_0$. La comparación formal da
+
+\begin{equation}
+T_{\mathrm{evap}}
+<
+T_{\mathrm{cruce}}^{(\mathrm{Schw})}.
+\end{equation}
+
+Este resultado no debe interpretarse como una prueba final. La métrica de Schwarzschild es estática y no contiene el flujo de energía saliente que produce la evaporación. Su utilidad aquí es más modesta: muestra que, incluso en la aproximación más conservadora y clásica, la descripción externa no contiene un cruce finito del radio $r_s$. Si esta lectura se combina con el balance externo de evaporación, puede entenderse que en el instante $T_{\mathrm{evap}}$ la curvatura asociada a la masa inicial ya no pertenece a una geometría negra persistente, sino a una configuración exterior que tiende de nuevo a ser plana.
+
+\section{Modelo dinámico: métrica de Vaidya saliente}
+
+Para representar la pérdida de masa desde el punto de vista exterior usamos la métrica de Vaidya saliente en coordenadas de Eddington-Finkelstein retardadas $(u,r,\theta,\phi)$ \cite{Vaidya1951,Poisson2004}:
+
+\begin{equation}
+ds^2 =
+-
+\left(
+1-\frac{2GM(u)}{c^2r}
+\right)c^2du^2
+-2c\,du\,dr
++r^2d\Omega^2.
+\label{eqVaidyaMetric}
+\end{equation}
+
+Aquí $u$ etiqueta los frentes de radiación saliente que alcanzan el infinito nulo futuro. La función
+
+\begin{equation}
+f(u,r)=
+1-\frac{r_h(u)}{r}
+\end{equation}
+
+contiene la evolución de la masa de Bondi. Para fijar una escala de evaporación compatible con Hawking se usa la parametrización efectiva
+
+\begin{equation}
+\frac{dM}{du}
+=
+-
+\frac{\alpha}{M^2},
+\qquad
+\alpha =
+\frac{\hbar c^4}{15360\pi G^2},
+\label{eqMassLoss}
+\end{equation}
+
+cuya solución es
+
+\begin{equation}
+M(u)=
+M_0
+\left(
+1-\frac{u}{T_{\mathrm{evap}}}
+\right)^{1/3},
+\qquad
+0\leq u<T_{\mathrm{evap}}.
+\label{eqMassLaw}
+\end{equation}
+
+La superficie
+
+\begin{equation}
+r=r_h(u),
+\qquad
+r_h(u)=
+\frac{2GM(u)}{c^2},
+\label{eqEffectiveHorizon}
+\end{equation}
+
+marca el lugar donde $f(u,r)$ se anula. En lo que sigue se la denomina horizonte aparente dinámico: una superficie cuasilocal asociada a la masa exterior instantánea, no una hipótesis previa sobre la existencia de un horizonte de eventos global \cite{Hayward1994,AshtekarKrishnan2004,Visser2014,Nielsen2008}.
+
+La evaporación aparece ahora en la propia métrica mediante $M(u)$. La pregunta de cruce se formula como una condición de encuentro: dada una trayectoria radial exterior $r_p(u)$, ¿existe un valor finito $u_c<T_{\mathrm{evap}}$ tal que
+
+\begin{equation}
+r_p(u_c)=r_h(u_c)?
+\label{eqCrossingCondition}
+\end{equation}
+
+\section{Fotón mágico y cota causal}
+
+El fotón mágico se modela como una trayectoria radial nula entrante. Esta trayectoria es el caso más favorable para el cruce: cualquier partícula masiva radial queda causalmente acotada por ella. Para verlo, consideremos primero una trayectoria radial temporal, $d\Omega=0$ y $ds^2=-c^2d\tau^2$. La normalización de la cuadrivelocidad da
+
+\begin{equation}
+1=
+f(u,r)
+\left(
+\frac{du}{d\tau}
+\right)^2
++
+\frac{2}{c}
+\frac{du}{d\tau}
+\frac{dr}{d\tau}.
+\label{eqVaidyaNormalization}
+\end{equation}
+
+Definiendo
+
+\begin{equation}
+U=
+\frac{du}{d\tau}>0,
+\end{equation}
+
+se obtiene
+
+\begin{equation}
+\frac{dr}{du}
+=
+\frac{c}{2}
+\left[
+\frac{1}{U^2}
+-
+f(u,r)
+\right].
+\label{eqTimelikeRadialVaidya}
+\end{equation}
+
+Como $1/U^2>0$, toda trayectoria masiva radial satisface
+
+\begin{equation}
+\frac{dr}{du}
+>
+-
+\frac{c}{2}
+f(u,r).
+\label{eqTimelikeBound}
+\end{equation}
+
+El lado derecho es precisamente la trayectoria nula radial entrante,
+
+\begin{equation}
+\left(
+\frac{dr}{du}
+\right)_{\mathrm{null}}
+=
+-
+\frac{c}{2}
+\left(
+1-\frac{r_h(u)}{r}
+\right).
+\label{eqIngoingNull}
+\end{equation}
+
+Por tanto, si el fotón mágico no alcanza el horizonte aparente, tampoco puede hacerlo ninguna partícula masiva exterior.
+
+La superficie aparente se contrae según
+
+\begin{equation}
+\frac{dr_h}{du}
+=
+\frac{2G}{c^2}
+\frac{dM}{du}
+<0.
+\label{eqHorizonRetreat}
+\end{equation}
+
+Definimos
+
+\begin{equation}
+k(u)=
+-
+\frac{dr_h}{du}
+>0
+\label{eqRetreatSpeed}
+\end{equation}
+
+como la velocidad de contracción del radio aparente en el tiempo retardo $u$. Si
+
+\begin{equation}
+\Delta(u)=r_p(u)-r_h(u),
+\label{eqGapDefinition}
+\end{equation}
+
+entonces el cruce aparente requiere $\Delta(u)=0$ y
+
+\begin{equation}
+\frac{d\Delta}{du}
+=
+\frac{dr_p}{du}
+-
+\frac{dr_h}{du}.
+\label{eqGapEvolution}
+\end{equation}
+
+Para el fotón mágico, usando $r_p(u)=r_h(u)+\Delta(u)$ en \eqref{eqIngoingNull}, resulta
+
+\begin{equation}
+\left(
+\frac{d\Delta}{du}
+\right)_{\mathrm{null}}
+=
+k(u)
+-
+\frac{c}{2}
+\frac{\Delta(u)}
+{r_h(u)+\Delta(u)}.
+\label{eqGapNull}
+\end{equation}
+
+Para trayectorias masivas, \eqref{eqTimelikeBound} da la desigualdad
+
+\begin{equation}
+\frac{d\Delta}{du}
+>
+k(u)
+-
+\frac{c}{2}
+\frac{\Delta(u)}
+{r_h(u)+\Delta(u)}.
+\label{eqGapInequalityTimelike}
+\end{equation}
+
+En la frontera de cruce, $\Delta=0$, se obtiene
+
+\begin{equation}
+\left.
+\left(
+\frac{d\Delta}{du}
+\right)_{\mathrm{null}}
+\right|_{\Delta=0}
+=
+k(u)>0,
+\label{eqNullRepulsion}
+\end{equation}
+
+y, para trayectorias masivas,
+
+\begin{equation}
+\left.
+\frac{d\Delta}{du}
+\right|_{\Delta=0}
+>0.
+\end{equation}
+
+La frontera $\Delta=0$ no actúa como una superficie que las trayectorias exteriores crucen desde $\Delta>0$ hacia $\Delta<0$. En un primer cruce desde el exterior haría falta $d\Delta/du\leq0$ en $u_c$; sin embargo, incluso para el fotón mágico se obtiene $d\Delta/du=k(u_c)>0$. Por tanto, si
+
+\begin{equation}
+\Delta(0)>0,
+\end{equation}
+
+no existe un primer instante finito $u_c<T_{\mathrm{evap}}$ tal que $\Delta(u_c)=0$.
+
+\section{Condición de cruce y evaporación finita}
+
+La ley \eqref{eqMassLoss} implica que
+
+\begin{equation}
+M(u)\rightarrow 0
+\qquad
+\mathrm{cuando}
+\qquad
+u\rightarrow T_{\mathrm{evap}},
+\end{equation}
+
+y por tanto
+
+\begin{equation}
+r_h(u)\rightarrow 0
+\qquad
+\mathrm{cuando}
+\qquad
+u\rightarrow T_{\mathrm{evap}}.
+\end{equation}
+
+En esta idealización, la superficie cuasilocal asociada a la masa exterior desaparece en un tiempo retardo finito. El resultado anterior muestra que, si la trayectoria causal parte desde el exterior,
+
+\begin{equation}
+\Delta(0)>0,
+\end{equation}
+
+entonces no existe un primer instante finito
+
+\begin{equation}
+u_c<T_{\mathrm{evap}}
+\end{equation}
+
+tal que
+
+\begin{equation}
+r_p(u_c)=r_h(u_c).
+\end{equation}
+
+La razón es geométrica: en la propia superficie $r=r_h(u)$, incluso la trayectoria causal entrante más rápida queda separada de la superficie por la contracción de $r_h(u)$. La superficie gravitacional efectiva se contrae antes de ser alcanzada por una trayectoria exterior futura.
+
+Este resultado no es una afirmación puramente local sobre el valor instantáneo del radio $2GM/c^2$. Depende de la evolución de $M(u)$, del signo $dM/du<0$ y de la comparación causal entre la trayectoria de prueba y la superficie dinámica. En el lenguaje divulgativo del presente trabajo, nos referiremos a esta superficie como horizonte aparente dinámico. El resultado central es que su cruce queda excluido en este modelo efectivo para trayectorias exteriores futuras.
+
+\section{Interpretación física}
+
+La cuestión central es la compatibilidad entre tres elementos que pertenecen al mismo espacio-tiempo:
+
+\begin{enumerate}
+\item Una masa de Bondi decreciente $M(u)$.
+\item Un radio gravitacional efectivo $r_h(u)$ que se contrae.
+\item Una trayectoria causal exterior $r_p(u)$ que intenta alcanzar esa superficie dinámica.
+\end{enumerate}
+
+El observador externo describe la evaporación mediante el tiempo retardo $u$ y el balance de masa-energía en el infinito nulo. La trayectoria entrante, el flujo radiativo y la evolución de $M(u)$ no son procesos separados: pertenecen a una misma geometría efectiva. Por eso la pregunta de cruce debe formularse en términos de la relación entre $r_p(u)$, $r_h(u)$ y la evolución energética exterior.
+
+La conclusión que sí se obtiene dentro del modelo es que una trayectoria exterior futura no alcanza la superficie cuasilocal $r_h(u)$ antes de la evaporación. La prueba no depende de que el objeto de prueba sea masivo o relativista: toda partícula masiva queda acotada por la trayectoria nula entrante, y esta tampoco puede cruzar la frontera $\Delta=0$ porque allí $d\Delta/du=k(u)>0$.
+
+Esta lectura desplaza el foco. El objeto compacto puede comportarse externamente como un agujero negro durante un intervalo extremadamente largo, con desplazamiento al rojo enorme y una región exterior casi estacionaria en escalas cortas frente a $T_{\mathrm{evap}}$. Sin embargo, desde el punto de vista de la partícula exterior, la frontera relevante se comporta más como un horizonte aparente que retrocede que como una superficie ya cruzable. Esto conecta de forma natural con imágenes tipo estrella congelada, agujero negro incipiente o cuasi-horizonte de vida finita \cite{Vachaspati2007,Barcelo2008,Visser2014,Bardeen2014}.
+
+\section{Discusión}
+
+El modelo usado aquí sigue siendo idealizado. La métrica de Vaidya describe radiación nula clásica con simetría esférica, mientras que la evaporación de Hawking es un proceso cuántico en espacio-tiempo curvo. Por ello, Vaidya debe entenderse como una geometría efectiva para estudiar la pérdida exterior de masa, no como una solución final del problema semiclásico.
+
+Aun así, la masa que determina la curvatura exterior evoluciona en la propia métrica. El radio gravitacional efectivo ya no es una superficie inmóvil, y la comparación entre caída y evaporación se convierte en una condición de encuentro:
+
+\begin{equation}
+\Delta(u)=0.
+\end{equation}
+
+La cota causal anterior muestra que $\Delta(u)$ no puede tener un primer cero finito si parte de un valor positivo. Por tanto, dentro de esta idealización, la superficie retrocede antes de ser alcanzada en la descripción externa.
+
+El uso de un modelo de Vaidya es una aproximación simple y conservadora: se mantiene una geometría exterior estándar, se introduce una pérdida de masa controlada y se pregunta si una partícula exterior puede alcanzar el horizonte aparente. El hecho de que incluso en este marco el cruce no aparezca sugiere que parte de los debates sobre pérdida de información podrían reformularse antes de asumir una entrada efectiva de materia a una región causalmente desconectada.
+
+\section{Conclusión}
+
+El experimento mental se ha formulado en dos niveles. En el nivel conservador, se compara el tiempo finito de evaporación de Hawking con el cruce en coordenadas externas de Schwarzschild. La métrica estática no describe la evaporación, pero muestra que el fotón mágico no cruza el radio $r_s$ en tiempo externo finito:
+
+\begin{equation}
+T_{\mathrm{evap}}
+<
+T_{\mathrm{cruce}}^{(\mathrm{Schw})}
+=
+\infty.
+\end{equation}
+
+En el nivel dinámico, se usa una métrica de Vaidya saliente, en la que la masa exterior es una masa de Bondi decreciente $M(u)$ y el radio aparente viene dado por
+
+\begin{equation}
+r_h(u)=\frac{2GM(u)}{c^2}.
+\end{equation}
+
+La pregunta de cruce se expresa mediante la condición dinámica
+
+\begin{equation}
+r_p(u_c)=r_h(u_c),
+\qquad
+u_c<T_{\mathrm{evap}}.
+\end{equation}
+
+La cota causal obtenida en este trabajo muestra que, para trayectorias exteriores futuras,
+
+\begin{equation}
+u_c<T_{\mathrm{evap}}
+\end{equation}
+
+no se realiza en el horizonte aparente $r_h(u)$. Este es el resultado principal del artículo: en un modelo evaporante coherente con el flujo de energía exterior, ni siquiera la trayectoria causal entrante más rápida alcanza el horizonte aparente antes de la evaporación. El ejercicio no resuelve por sí solo la física completa de los objetos compactos reales, pero apunta a una imagen donde el crecimiento del objeto se parece menos a la entrada de partículas a través de una frontera permanente y más a una acumulación altamente desplazada al rojo, cercana a la idea de una estrella congelada o un cuasi-horizonte dinámico.
+
+\section*{Puntos abiertos}
+
+El argumento presentado es deliberadamente limitado. Los siguientes puntos requieren desarrollo posterior:
+
+\begin{enumerate}
+\item Extender la cota causal a leyes de masa más generales y a modelos semiclásicos más allá de Vaidya.
+\item Extender el argumento analítico a geodésicas temporales con condiciones iniciales generales, incluyendo partículas relativistas con energía finita.
+\item Distinguir con precisión entre $r_h(u)$ como radio gravitacional efectivo, horizonte aparente, horizonte de atrapamiento u horizonte dinámico.
+\item Incluir la retroacción semiclásica de la radiación de Hawking más allá de la parametrización efectiva de $M(u)$.
+\item Analizar la extensión global necesaria para decidir si existe o no un horizonte de eventos.
+\item Estudiar el caso de una capa colapsante con masa propia, en lugar de una partícula de prueba sin retroacción.
+\item Separar rigurosamente los efectos de coordenadas de las afirmaciones invariantes sobre formación de superficies atrapadas.
+\end{enumerate}
+
+\section{Extensión especulativa: quasi-agujeros, información y holografía}
+
+La interpretación anterior sugiere algunas consecuencias posibles si se toma en serio la descripción dinámica mediante Vaidya. Esta sección es deliberadamente especulativa: no pretende derivar un nuevo modelo completo de agujero negro, sino señalar direcciones conceptuales que podrían explorarse en trabajos posteriores. Ideas relacionadas aparecen en la literatura sobre agujeros negros incipientes, colapso semiclásico, objetos compactos exóticos y modelos sin horizonte de eventos permanente \cite{Vachaspati2007,Barcelo2008,MazurMottola2004,CardosoPani2019,Bardeen2014,Ashtekar2020}.
+
+\subsection{Partículas absorbidas y crecimiento del objeto compacto}
+
+Hasta ahora, el reloj de prueba se ha tratado como una partícula idealizada cuya masa no modifica la geometría. Sin embargo, una partícula real que cae hacia el objeto compacto aporta energía al sistema gravitante. En una descripción clásica, esa energía contribuiría a la masa total y, por tanto, al tamaño del radio gravitacional efectivo \cite{MTW1973,Wald1984}.
+
+Desde la perspectiva del argumento desarrollado aquí, esto sugiere una reinterpretación de la absorción. Si la superficie relevante es un radio gravitacional efectivo $r_h(u)$ que evoluciona mientras la partícula cae, entonces la incorporación de la partícula no puede describirse simplemente como el cruce de una frontera eterna ya dada. Más bien, su energía pasa a formar parte de la configuración gravitante observada externamente, aumentando temporalmente la masa efectiva del sistema y modificando la región de gran desplazamiento al rojo.
+
+En esta lectura, el crecimiento del objeto compacto no se interpreta necesariamente como la acumulación de partículas dentro de una singularidad, sino como la evolución de una configuración extremadamente compacta vista desde el exterior. La partícula queda cada vez más desplazada al rojo y su contribución energética se integra en el balance externo del sistema, mientras la pregunta de cruce queda formulada por la condición dinámica $r_p(u)=r_h(u)$.
+
+Esto no elimina la posibilidad de que el objeto compacto se comporte externamente como un agujero negro durante tiempos extremadamente largos. Lo que cambia es la interpretación del proceso de absorción: en lugar de una entrada definitiva en una región causalmente desconectada, podría entenderse como una incorporación asintótica a una configuración de cuasi-horizonte.
+
+\subsection{Carcasa colapsante y quasi-agujero}
+
+Una extensión natural del experimento mental consiste en sustituir el agujero negro idealizado por una carcasa esférica extremadamente densa formada por partículas en caída libre. Esta carcasa puede aproximarse progresivamente a su propio radio gravitacional, generando desde el exterior una región de enorme desplazamiento al rojo. Configuraciones de este tipo están relacionadas, aunque no son idénticas, con ideas como agujeros negros incipientes, objetos ultracompactos sin horizonte, gravastars y otros objetos compactos exóticos \cite{Vachaspati2007,Barcelo2008,MazurMottola2004,CardosoPani2019}. A este tipo de configuración la llamaremos, de forma provisional, un quasi-agujero.
+
+En un quasi-agujero no existe necesariamente un horizonte de eventos ya formado. Por tanto, la radiación no tendría que interpretarse exclusivamente como radiación de Hawking emitida por un horizonte. Podría incluir radiación ordinaria producida por la materia caliente, comprimida o acelerada de la carcasa. La diferencia esencial es que dicha radiación estaría fuertemente desplazada al rojo para un observador lejano.
+
+Así, el proceso externo podría parecerse al de una evaporación extremadamente lenta: la energía escapa, pero lo hace con una tasa muy reducida debido a la dilatación temporal gravitatoria. La carcasa se aproxima a la condición de horizonte, pero la misma dilatación temporal que la hace parecer congelada también frena la emisión observada desde el exterior.
+
+Si la energía de la carcasa se radia mientras su radio gravitacional efectivo se contrae, el resultado sería análogo al obtenido en el experimento mental principal. La configuración se comportaría durante un tiempo muy largo como un agujero negro, pero sin requerir que se forme una singularidad ni un horizonte de eventos permanente.
+
+Esta posibilidad desplaza la intuición del problema. El colapso gravitatorio no tendría que entenderse únicamente como una caída inevitable hacia una singularidad espacial. También podría interpretarse como una acumulación extrema de dilatación temporal: la materia no colapsaría simplemente en el espacio, sino que quedaría progresivamente atrapada en una región donde su evolución externa se ralentiza de forma extrema.
+
+\subsection{Evaporación como irradiación frenada por dilatación temporal}
+
+Desde esta perspectiva, la evaporación puede interpretarse de manera más general como una irradiación frenada por la dilatación temporal. En el caso de un agujero negro clásico, esta irradiación se describe mediante radiación de Hawking. En el caso de un quasi-agujero sin horizonte exacto, podría tratarse de radiación ordinaria emitida por una configuración material extremadamente compacta, pero observada desde el exterior con un desplazamiento al rojo enorme \cite{Barcelo2011,Vachaspati2007}.
+
+La diferencia entre ambas imágenes podría ser menos evidente para un observador lejano de lo que parece inicialmente. En ambos casos, el objeto sería oscuro, compacto, altamente desplazado al rojo y capaz de liberar energía durante escalas temporales muy largas. La observación externa podría ser compatible con un objeto prácticamente indistinguible de un agujero negro clásico durante la mayor parte de su vida.
+
+La idea especulativa es que lo que llamamos evaporación no tenga que entenderse necesariamente como la desaparición de una singularidad oculta tras un horizonte, sino como la liberación extremadamente retardada de energía e información desde una región de gran dilatación temporal. En esta lectura, la información no tendría por qué destruirse; podría quedar codificada en grados de libertad altamente desplazados al rojo y liberarse de forma muy lenta.
+
+\subsection{Relación con información y holografía}
+
+Esta interpretación también ofrece una intuición alternativa para el problema de la pérdida de información, formulado originalmente en el contexto de la evaporación de Hawking y ampliamente debatido desde entonces \cite{Hawking1976,Page1993,UnruhWald2017}. Si nunca se forma un horizonte de eventos permanente, o si la descripción física relevante es la de un cuasi-horizonte de vida finita, entonces la información asociada a la materia en caída no queda necesariamente separada para siempre del exterior. Puede permanecer inaccesible en la práctica durante tiempos enormes, pero no destruida en principio.
+
+La diferencia es importante. Una pérdida práctica de información por desplazamiento al rojo extremo no es lo mismo que una pérdida fundamental de información por desconexión causal absoluta. En el primer caso, la información podría estar todavía presente en la configuración externa del sistema o en correlaciones muy débiles de la radiación emitida. En el segundo, la información habría quedado eliminada de la descripción accesible al exterior de forma irreversible.
+
+Esta imagen también conecta de manera sugerente con la relación entre masa, entropía y área en los agujeros negros. La entropía de Bekenstein-Hawking escala con el área del horizonte, no con el volumen encerrado \cite{Bekenstein1973,BardeenCarterHawking1973,Hawking1975}. En la interpretación especulativa propuesta aquí, esto podría entenderse intuitivamente si la configuración física relevante no es un volumen interior clásico terminado en una singularidad, sino una región exterior extremadamente compacta, similar a una carcasa o cuasi-superficie, donde los grados de libertad relevantes se organizan de forma efectiva sobre una escala de área.
+
+Esta conexión no demuestra que los agujeros negros sean literalmente carcasas materiales. Sin embargo, ofrece una imagen compatible con la intuición holográfica: la información gravitatoria relevante para el exterior podría estar codificada en una estructura efectiva de superficie, no en un volumen interno clásico \cite{Hooft1993,Susskind1995,Bousso2002,Maldacena1999}. En tal caso, un agujero negro natural no sería necesariamente una singularidad espacial oculta, sino una configuración límite del espacio-tiempo donde la acumulación de energía produce una dilatación temporal extrema, una irradiación fuertemente frenada y una descripción externa dominada por grados de libertad de área.
+
+\subsection{Resumen especulativo}
+
+Si esta línea argumental se desarrollara con éxito, la imagen resultante sería la siguiente:
+
+\begin{enumerate}
+\item Una partícula que cae hacia el objeto compacto no cruza un horizonte de eventos en tiempo externo finito, sino que contribuye a una configuración gravitante cada vez más desplazada al rojo.
+\item Un objeto ultracompacto formado por muchas partículas en caída podría comportarse externamente como un agujero negro sin requerir una singularidad clásica.
+\item La evaporación podría entenderse, al menos en parte, como irradiación retardada por dilatación temporal extrema.
+\item La información no tendría por qué perderse fundamentalmente, sino quedar muy desplazada al rojo y liberarse de forma extremadamente lenta.
+\item La relación entre masa, entropía y área sería compatible con una descripción efectiva de superficie o cuasi-horizonte, en lugar de una descripción basada en un volumen interior singular.
+\end{enumerate}
+
+Estas ideas no sustituyen a un modelo dinámico completo. Su valor en el presente trabajo es orientar la intuición: si un agujero negro natural evapora en tiempo externo finito, quizá la descripción más física no sea la de una singularidad inevitable, sino la de una región donde la energía, la radiación y la información quedan dominadas por una dilatación temporal extrema.
+
+\appendix
+
+\section{Derivación de la cota causal}
+
+En este apéndice se recopila el desarrollo matemático de la cota usada en el texto principal. Partimos de la métrica de Vaidya saliente,
+
+\begin{equation}
+ds^2 =
+-
+f(u,r)c^2du^2
+-2c\,du\,dr
++r^2d\Omega^2,
+\end{equation}
+
+donde
+
+\begin{equation}
+f(u,r)=
+1-\frac{r_h(u)}{r},
+\qquad
+r_h(u)=
+\frac{2GM(u)}{c^2}.
+\end{equation}
+
+Para una trayectoria radial no hay variación angular, de modo que $d\Omega=0$. Si la trayectoria es temporal, $ds^2=-c^2d\tau^2$, donde $\tau$ es el tiempo propio del reloj. Sustituyendo en la métrica se obtiene
+
+\begin{equation}
+-c^2d\tau^2
+=
+-
+f(u,r)c^2du^2
+-2c\,du\,dr.
+\end{equation}
+
+Dividiendo por $-c^2d\tau^2$ queda
+
+\begin{equation}
+1=
+f(u,r)
+\left(
+\frac{du}{d\tau}
+\right)^2
++
+\frac{2}{c}
+\frac{du}{d\tau}
+\frac{dr}{d\tau}.
+\end{equation}
+
+Definimos
+
+\begin{equation}
+U=
+\frac{du}{d\tau}.
+\end{equation}
+
+Para una trayectoria futura exterior, $U>0$. Como $dr/d\tau=U\,dr/du$, la ecuación anterior se transforma en
+
+\begin{equation}
+1=
+f(u,r)U^2
++
+\frac{2}{c}
+U^2
+\frac{dr}{du}.
+\end{equation}
+
+Despejando,
+
+\begin{equation}
+\frac{dr}{du}
+=
+\frac{c}{2}
+\left[
+\frac{1}{U^2}
+-
+f(u,r)
+\right].
+\end{equation}
+
+El término $1/U^2$ es positivo para toda trayectoria temporal. Por tanto,
+
+\begin{equation}
+\frac{dr}{du}
+>
+-
+\frac{c}{2}
+f(u,r).
+\label{eqAppendixTimelikeBound}
+\end{equation}
+
+La trayectoria radial nula entrante se obtiene imponiendo $ds^2=0$ y $d\Omega=0$:
+
+\begin{equation}
+0=
+-
+f(u,r)c^2du^2
+-2c\,du\,dr.
+\end{equation}
+
+Para $du\neq0$, resulta
+
+\begin{equation}
+\left(
+\frac{dr}{du}
+\right)_{\mathrm{null}}
+=
+-
+\frac{c}{2}
+f(u,r)
+=
+-
+\frac{c}{2}
+\left(
+1-\frac{r_h(u)}{r}
+\right).
+\label{eqAppendixNull}
+\end{equation}
+
+Así, la trayectoria nula entrante da una cota inferior para $dr/du$: es el movimiento causal más rápido posible hacia radios menores. Si se define la separación
+
+\begin{equation}
+\Delta(u)=
+r_p(u)-r_h(u),
+\end{equation}
+
+entonces
+
+\begin{equation}
+\frac{d\Delta}{du}
+=
+\frac{dr_p}{du}
+-
+\frac{dr_h}{du}.
+\end{equation}
+
+Como en evaporación $dM/du<0$, también
+
+\begin{equation}
+\frac{dr_h}{du}<0.
+\end{equation}
+
+Definimos la velocidad de contracción del horizonte aparente como
+
+\begin{equation}
+k(u)=
+-
+\frac{dr_h}{du}
+>0.
+\end{equation}
+
+Usando \eqref{eqAppendixTimelikeBound} y $r_p(u)=r_h(u)+\Delta(u)$, se obtiene para cualquier reloj masivo
+
+\begin{equation}
+\frac{d\Delta}{du}
+>
+k(u)
+-
+\frac{c}{2}
+\frac{\Delta(u)}
+{r_h(u)+\Delta(u)}.
+\end{equation}
+
+En el límite nulo entrante, la desigualdad se convierte en igualdad:
+
+\begin{equation}
+\left(
+\frac{d\Delta}{du}
+\right)_{\mathrm{null}}
+=
+k(u)
+-
+\frac{c}{2}
+\frac{\Delta(u)}
+{r_h(u)+\Delta(u)}.
+\end{equation}
+
+En la frontera de cruce, $\Delta=0$, queda
+
+\begin{equation}
+\left.
+\left(
+\frac{d\Delta}{du}
+\right)_{\mathrm{null}}
+\right|_{\Delta=0}
+=
+k(u)>0.
+\end{equation}
+
+Para relojes masivos el resultado es todavía más fuerte:
+
+\begin{equation}
+\left.
+\frac{d\Delta}{du}
+\right|_{\Delta=0}
+>0.
+\end{equation}
+
+Por tanto, si una trayectoria parte del exterior, $\Delta(0)>0$, no puede existir un primer instante finito $u_c$ en el que $\Delta(u_c)=0$. En ese primer cruce haría falta que la separación llegara a cero desde valores positivos, lo que exigiría una derivada no positiva en la frontera. Sin embargo, la ecuación anterior muestra que la frontera empuja las trayectorias exteriores hacia $\Delta>0$.
+
+\bibliographystyle{apsrev4-2}
+\bibliography{References}
+
+\end{document}

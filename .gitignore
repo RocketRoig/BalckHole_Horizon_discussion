@@ -1,0 +1,15 @@
+build/*
+!build/.gitkeep
+.venv/
+.vscode/
+Resources/
+resources/
+scripts/
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls

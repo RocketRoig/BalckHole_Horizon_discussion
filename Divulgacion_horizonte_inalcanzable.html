@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Divulgacion: horizonte inalcanzable</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101216;
+      --panel: #181b21;
+      --panel-2: #20242d;
+      --text: #f3f0e8;
+      --muted: #aeb6c2;
+      --grid: rgba(255, 255, 255, 0.09);
+      --fabric: #70d6c5;
+      --fabric-soft: rgba(112, 214, 197, 0.18);
+      --horizon: #ffcf5a;
+      --clock: #ff6b6b;
+      --observer: #d9e6ff;
+      --singularity: #b086ff;
+      --ok: #8df0a3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      min-height: 100vh;
+    }
+
+    header {
+      display: grid;
+      gap: 8px;
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: #151820;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 4vw, 38px);
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    header p {
+      max-width: 980px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    .article {
+      padding: 42px 22px 54px;
+      background: #101216;
+    }
+
+    .article-inner {
+      width: min(820px, 100%);
+      margin: 0 auto;
+    }
+
+    .article h2 {
+      margin: 34px 0 12px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .article h2:first-child {
+      margin-top: 0;
+    }
+
+    .article p,
+    .article li {
+      color: rgba(243, 240, 232, 0.88);
+      font-size: 18px;
+      line-height: 1.68;
+    }
+
+    .article p {
+      margin: 0 0 18px;
+    }
+
+    .article ul {
+      margin: 0 0 22px;
+      padding-left: 24px;
+    }
+
+    .article blockquote {
+      margin: 26px 0;
+      padding: 4px 0 4px 18px;
+      border-left: 3px solid var(--horizon);
+      color: var(--text);
+      font-size: 21px;
+      line-height: 1.52;
+    }
+
+    .article pre {
+      margin: 18px 0 24px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      background: #181b21;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+    }
+
+    .article pre code {
+      color: #ffe29a;
+      font-size: 15px;
+    }
+
+    .math-block {
+      margin: 18px 0 24px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      background: #181b21;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      color: #ffe29a;
+      font-size: 19px;
+    }
+
+    .animation-heading {
+      padding: 28px 22px 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #151820;
+    }
+
+    .animation-heading div {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+    }
+
+    .animation-heading h2 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 3vw, 32px);
+      letter-spacing: 0;
+    }
+
+    .animation-heading p {
+      max-width: 900px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      min-height: 0;
+    }
+
+    .stage {
+      position: relative;
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 42%),
+        radial-gradient(circle at 50% 12%, rgba(112,214,197,0.11), transparent 32%);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+    }
+
+    aside {
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      padding: 16px;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--panel);
+      overflow: auto;
+    }
+
+    .readout,
+    .controls,
+    .legend,
+    .note {
+      background: var(--panel-2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .controls {
+      display: grid;
+      gap: 12px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    button {
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 6px;
+      background: #2b313b;
+      color: var(--text);
+      padding: 10px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #343b47;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .control-row output {
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--horizon);
+    }
+
+    .metric {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: baseline;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px;
+    }
+
+    .metric:last-child {
+      border-bottom: 0;
+    }
+
+    .metric span:first-child {
+      color: var(--muted);
+    }
+
+    .metric strong {
+      font-variant-numeric: tabular-nums;
+      font-weight: 720;
+    }
+
+    .legend {
+      display: grid;
+      gap: 9px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .key {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .line {
+      height: 3px;
+      border-radius: 999px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    code {
+      color: #ffe29a;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: 0.94em;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .stage,
+      canvas {
+        min-height: 500px;
+      }
+    }
+  </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]]
+      },
+      svg: {
+        fontCache: "global"
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Horizonte inalcanzable</h1>
+      <p>Una historia sencilla nacida de Interstellar: si el tiempo se estira cerca de Gargantua, podria estirarse tanto que nadie llegara a cruzar el horizonte antes de que el agujero negro se evaporase?</p>
+    </header>
+
+    <article class="article">
+      <div class="article-inner">
+        <h2>La pregunta que se queda rondando</h2>
+        <p>Hay peliculas que no se quedan solo en la pantalla. Se quedan en la cabeza. Interstellar tiene varias escenas asi, pero hay una idea que siempre vuelve: cerca de Gargantua, el tiempo no pasa igual para todos.</p>
+        <p>En el planeta de Miller "planeta de las olas", Cooper y los demas viven unas horas. Pero lejos de alli, en la nave, han pasado decadas. Es una escena facil de entender aunque la fisica sea enorme: para unos ha sido una tarde; para otros, una vida.</p>
+        <p>Y entonces aparece la pregunta, pequeñita al principio:</p>
+        <blockquote>si unas horas cerca de Gargantua pueden convertirse en años fuera, que pasaria al estar mas y mas cerca del agujero negro?</blockquote>
+
+        <h2>Cooper, TARS y Brand</h2>
+        <p>Al final de la pelicula, TARS se suelta hacia Gargantua. Despues Cooper tambien se separa. Brand queda fuera, siguiendo su camino hacia el planeta de Edmunds.</p>
+        <p>Para esta historia vamos a imaginar algo muy simple: Brand sera quien mira desde lejos. Ella no cae. Ella observa el sistema desde fuera. Cooper y TARS son los que se lanzan hacia el borde de Gargantua.</p>
+        <p>La pelicula nos lleva hacia una singularidad y hacia una historia maravillosa dentro del agujero negro. Pero aqui vamos a jugar a otra cosa. Vamos a preguntar que veria Brand si, mientras Cooper y TARS caen, Gargantua tambien se estuviera evaporando lentamente.</p>
+
+        <h2>El reloj que se duerme</h2>
+        <p>Imagina que Cooper lleva un reloj luminoso en la muñeca. Cada segundo hace un destello. Al principio Brand ve esos destellos con normalidad: uno, dos, tres.</p>
+        <p>Pero cuanto mas se acerca Cooper al agujero negro, mas raro se vuelve todo. Los destellos empiezan a llegar mas separados. Luego mucho mas separados. Luego casi dejan de llegar.</p>
+        <p>No es que Cooper haya apagado el reloj. Es que para Brand, desde fuera, el tiempo de Cooper se esta estirando, tal y como ocurria en el planeta de Miller. Es como si el universo pusiera su caida a camara mas lenta justo cuando mas cerca esta del borde.</p>
+
+        <h2>El borde tambien se mueve</h2>
+        <p>Normalmente imaginamos el horizonte de un agujero negro como una linea fija: una frontera negra esperando ahi. Si llegas, cruzas. Si cruzas, ya no vuelves.</p>
+        <p>Pero si el agujero negro se evapora, pierde energia. Y si pierde energia, pierde masa y su borde tambien se hace mas pequeño. Esa es la intuicion escondida en esta formula:</p>
+        <div class="math-block">\[ r_h(u) = \frac{2 G M(u)}{c^2} \]</div>
+        <p>No hace falta pelearse con ella. Solo dice esto: si la masa \(M(u)\) baja, el radio del horizonte \(r_h(u)\) tambien baja.</p>
+        <p>Asi que ahora tenemos una persecucion muy extraña. Cooper y TARS caen hacia el horizonte, pero el horizonte tambien se esta retirando.</p>
+
+        <h2>La carrera imposible</h2>
+        <p>La escena se parece a intentar alcanzar una puerta en una cinta mecanica. Tu corres hacia la puerta, pero la puerta se aleja. Al principio parece que llegaras. Luego notas que cada paso cuesta mas. Y cuando estas cerca, el suelo mismo empieza a jugar en tu contra.</p>
+        <p>En nuestro experimento mental, la gravedad acelera a Cooper y TARS hacia Gargantua. Eso es real. Caen cuesta hacia el borde del agujero negro.</p>
+        <p>Pero para Brand, que mira desde lejos, la dilatacion temporal los frena cada vez mas. Y al mismo tiempo, la evaporacion hace que el horizonte aparente retroceda.</p>
+        <blockquote>Cooper cae, pero el borde se retira.</blockquote>
+
+        <h2>El foton magico</h2>
+        <p>Para estar seguros, el paper hace una trampa honesta: no pregunta primero por una nave, ni por un cuerpo, ni por una persona. Pregunta por algo aun mas rapido: un rayo de luz cayendo hacia dentro.</p>
+        <p>Ese es nuestro "foton magico". En esta historia, Cooper y TARS representan esa idea: el mensajero mas rapido que podriamos imaginar cayendo hacia Gargantua.</p>
+        <p>La logica es muy sencilla:</p>
+        <blockquote>si ni siquiera el mensajero mas rapido alcanza la puerta, nadie mas lento la alcanza.</blockquote>
+
+        <h2>Entonces, cruzan?</h2>
+        <p>En esta version del experimento mental, no. Desde el punto de vista de Brand, Cooper y TARS no llegan a cruzar el horizonte antes de que el horizonte se evapore.</p>
+        <p>No entran en la singularidad como en la pelicula. No porque algo los empuje hacia fuera, ni porque la gravedad desaparezca de golpe. La idea es mas suave y mas rara: se acercan cada vez mas, pero su tiempo visto desde fuera se estira cada vez mas, y la frontera que intentan alcanzar se evapora entes de ser alcanzada.</p>
+        <p>Para Brand, Cooper no atraviesa una puerta. Se convierte en una imagen cada vez mas lenta, cada vez mas roja, cada vez mas pegada al borde de algo que tambien esta desapareciendo.</p>
+
+        <h2>Por que esto importa</h2>
+        <p>La imagen clasica de un agujero negro dice: la materia cruza el horizonte del agujero negro, cae dentro y acaba en una singularidad. Esa imagen es potente, pero tambien abre problemas enormes: que pasa con la informacion, donde queda, como sale, si se destruye.</p>
+        <p>Esta intuicion propone empezar antes. Antes de preguntar que pasa dentro, pregunta si desde fuera se puede llegar a entrar.</p>
+        <p>Quizas el agujero negro fisico no sea tanto una puerta que se cruza, sino una region donde todo se vuelve extremadamente lento para quien mira desde lejos.</p>
+
+        <h2>Lo que hace el paper</h2>
+        <p>Este blog solo quiere abrir la puerta a la idea.</p>
+        <p>La frase tecnica seria algo asi: si Cooper y TARS empiezan su caida libre desde fuera, la distancia entre ellos y el horizonte no llega a cero antes de la evaporacion completa del agujero negro.</p>
+        <p>Pero la imagen sencilla es esta:</p>
+        <blockquote>Brand mira desde fuera; Cooper y TARS caen; Gargantua se evapora; el horizonte retrocede; y el cruce del horizonte nunca llega a ocurrir.</blockquote>
+
+        <h2>La animacion</h2>
+        <p>La animacion de abajo intenta contar esa misma historia sin pedirte que leas las ecuaciones. Brand queda lejos. Cooper cae por la pendiente de Gargantua.</p>
+        <p>La flecha azul muestra la gravedad acelerandolo hacia el horizonte. La flecha morada muestra la dilatacion temporal, que para Brand empieza a frenar cada vez mas la caida cuando Cooper se acerca al borde.</p>
+        <p>Mientras tanto, Gargantua pierde energia como radiacion de Hawking. El horizonte aparente se contrae. La escena no termina con Cooper cruzando la frontera, sino con el horizonte desvaneciendose antes de ser alcanzado.</p>
+      </div>
+    </article>
+
+    <section class="animation-heading">
+      <div>
+        <h2>Visualizacion</h2>
+        <p>Una escena para mirar la intuicion: Cooper cae hacia Gargantua, Brand observa desde fuera y el horizonte se retira mientras el tiempo de la caida se estira.</p>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="stage">
+        <canvas id="scene" aria-label="Animacion de un horizonte aparente dinamico"></canvas>
+      </div>
+
+      <aside>
+        <div class="controls">
+          <div class="buttons">
+            <button id="toggle" type="button">Pausar</button>
+            <button id="reset" type="button">Reiniciar</button>
+          </div>
+
+          <label>
+            <span class="control-row">
+              <span>velocidad de evaporacion</span>
+              <output id="evapSpeedValue">4.00x</output>
+            </span>
+            <input id="evapSpeed" type="range" min="0.1" max="8" step="0.05" value="4">
+          </label>
+
+          <label>
+            <span class="control-row">
+              <span>impulso inicial del reloj</span>
+              <output id="fallSpeedValue">1.50x</output>
+            </span>
+            <input id="fallSpeed" type="range" min="0.35" max="1.85" step="0.05" value="1.5">
+          </label>
+        </div>
+
+        <div class="readout">
+          <div class="metric"><span>tiempo externo</span><strong id="timeReadout">0.0</strong></div>
+          <div class="metric"><span>masa relativa</span><strong id="massReadout">1.000</strong></div>
+          <div class="metric"><span>horizonte aparente</span><strong id="horizonReadout">0.78</strong></div>
+          <div class="metric"><span>separacion rc-rh</span><strong id="gapReadout">6.62</strong></div>
+          <div class="metric"><span>velocidad reloj</span><strong id="speedReadout">0.0% c</strong></div>
+          <div class="metric"><span>dilatacion temporal</span><strong id="gammaReadout">1.00</strong></div>
+          <div class="metric"><span>estado</span><strong id="stateReadout">fuera</strong></div>
+        </div>
+
+        <div class="legend">
+          <div class="key"><span class="swatch" style="background: var(--observer)"></span><span>observador asintotico</span></div>
+          <div class="key"><span class="swatch" style="background: var(--clock)"></span><span>reloj interno en caida</span></div>
+          <div class="key"><span class="line" style="background: var(--horizon)"></span><span>horizonte aparente</span></div>
+          <div class="key"><span class="line" style="background: rgba(96,232,255,0.92)"></span><span>radiacion Hawking saliente</span></div>
+          <div class="key"><span class="line" style="background: #c68cff"></span><span>dilatacion temporal de fondo</span></div>
+          <div class="key"><span class="line" style="background: rgba(159,215,255,0.92)"></span><span>g: aceleracion hacia el horizonte</span></div>
+          <div class="key"><span class="line" style="background: rgba(198,140,255,0.92)"></span><span>dT: dilatacion temporal</span></div>
+          <div class="key"><span class="line" style="background: var(--fabric)"></span><span>potencial visual: \(y=-2.4\,r_h(t)^3/r^2\)</span></div>
+        </div>
+
+        <div class="note">
+          La dinamica del reloj usa una version escalada de la cota causal:
+          \(d(r_c-r_h)/dt = k(t) - v\,(r_c-r_h)/(r_h+r_c-r_h)\).
+          La posicion del reloj sigue la cota causal del paper. El porcentaje \(v/c\) es una lectura visual tipo velocidad local: crece al acercarse al horizonte. La flecha azul indica aceleracion gravitatoria efectiva; la morada indica dilatacion temporal.
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("scene");
+    const ctx = canvas.getContext("2d");
+
+    const ui = {
+      toggle: document.getElementById("toggle"),
+      reset: document.getElementById("reset"),
+      evapSpeed: document.getElementById("evapSpeed"),
+      evapSpeedValue: document.getElementById("evapSpeedValue"),
+      fallSpeed: document.getElementById("fallSpeed"),
+      fallSpeedValue: document.getElementById("fallSpeedValue"),
+      time: document.getElementById("timeReadout"),
+      mass: document.getElementById("massReadout"),
+      horizon: document.getElementById("horizonReadout"),
+      gap: document.getElementById("gapReadout"),
+      speed: document.getElementById("speedReadout"),
+      gamma: document.getElementById("gammaReadout"),
+      state: document.getElementById("stateReadout")
+    };
+
+    const model = {
+      xMin: 0.22,
+      xMax: 10,
+      yMin: -5.8,
+      yMax: 2.8,
+      h0: 0.78,
+      evapDuration: 34,
+      clockX0: 7.4,
+      observerX: 9.55,
+      nullSpeed: 0.92
+    };
+
+    const SPRITE_SIZE = 50;
+    const GARGANTUA_HORIZON_ANCHOR_X = 0.785; // Ajusta aqui: punto horizontal de la imagen que coincide con el horizonte.
+    const GARGANTUA_OPACITY = 0.58; // Baja este valor si tapa demasiado la dilatacion temporal.
+    const EVAPORATION_CURVE = 1.25; // 1.0 = lineal; mayor que 1 acelera al final.
+
+    const images = {
+      brand: loadImage("Brand.PNG"),
+      cooper: loadImage("cooper.png"),
+      gargantua: loadImage("gargantua.PNG")
+    };
+
+    let running = true;
+    let last = performance.now();
+    let time = 0;
+    let delta = model.clockX0 - model.h0;
+
+    function loadImage(src) {
+      const image = new Image();
+      image.src = src;
+      return image;
+    }
+
+    function reset() {
+      time = 0;
+      delta = model.clockX0 - model.h0;
+      last = performance.now();
+      running = true;
+      ui.toggle.textContent = "Pausar";
+    }
+
+    function massAt(t) {
+      const progress = evaporationProgress(t);
+      return Math.pow(1 - progress, 1 / 3);
+    }
+
+    function evaporationProgress(t) {
+      const speed = Number(ui.evapSpeed.value);
+      const raw = Math.min(0.985, (t * speed) / model.evapDuration);
+      return Math.min(0.96, Math.pow(raw, EVAPORATION_CURVE));
+    }
+
+    function finalFade(t) {
+      const progress = evaporationProgress(t);
+      const start = 0.84;
+      const end = 0.94;
+      const amount = Math.min(1, Math.max(0, (progress - start) / (end - start)));
+      const smooth = amount * amount * (3 - 2 * amount);
+      return 1 - smooth;
+    }
+
+    function horizonAt(t) {
+      return model.h0 * massAt(t);
+    }
+
+    function fabricY(x, h) {
+      const radius = Math.max(x, model.xMin);
+      return -2.4 * Math.pow(h, 3) / (radius * radius);
+    }
+
+    function resize() {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function projector() {
+      const rect = canvas.getBoundingClientRect();
+      const pad = {
+        left: Math.max(42, rect.width * 0.06),
+        right: Math.max(24, rect.width * 0.04),
+        top: Math.max(34, rect.height * 0.08),
+        bottom: Math.max(46, rect.height * 0.1)
+      };
+      const w = rect.width - pad.left - pad.right;
+      const h = rect.height - pad.top - pad.bottom;
+
+      return {
+        width: rect.width,
+        height: rect.height,
+        x(value) {
+          const safeValue = Math.max(model.xMin, value);
+          const logMin = Math.log(model.xMin);
+          const logMax = Math.log(model.xMax);
+          return pad.left + ((logMax - Math.log(safeValue)) / (logMax - logMin)) * w;
+        },
+        y(value) {
+          return pad.top + h - ((value - model.yMin) / (model.yMax - model.yMin)) * h;
+        }
+      };
+    }
+
+    function drawGrid(p) {
+      ctx.save();
+      ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--grid");
+      ctx.lineWidth = 1;
+      ctx.font = "12px system-ui";
+      ctx.fillStyle = "rgba(243,240,232,0.55)";
+
+      const logMarks = [0.25, 0.35, 0.5, 0.75, 1, 1.5, 2, 3, 5, 7, 10];
+      for (const x of logMarks) {
+        const px = p.x(x);
+        ctx.beginPath();
+        ctx.moveTo(px, p.y(model.yMin));
+        ctx.lineTo(px, p.y(model.yMax));
+        ctx.stroke();
+        if (x === 0.5 || x === 1 || x === 2 || x === 5 || x === 10) {
+          ctx.fillText(String(x), px - 8, p.y(model.yMax) - 8);
+        }
+      }
+
+      for (let y = Math.ceil(model.yMin); y <= 0; y += 1) {
+        const py = p.y(y);
+        ctx.beginPath();
+        ctx.moveTo(p.x(model.xMin), py);
+        ctx.lineTo(p.x(model.xMax), py);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = "rgba(243,240,232,0.72)";
+      ctx.fillText("radio exterior r", p.x(model.xMax) - 10, p.y(model.yMax) + 18);
+      ctx.fillText("escala radial comprimida cerca del centro", p.x(2.2), p.y(model.yMax) + 18);
+      ctx.restore();
+    }
+
+    function gammaAtRadius(x, h) {
+      const beta = Math.sqrt(Math.min(0.998, h / Math.max(x, h + 0.001)));
+      return 1 / Math.sqrt(1 - beta * beta);
+    }
+
+    function drawGammaField(p, h, fade = 1) {
+      if (fade <= 0.01) return;
+      ctx.save();
+      ctx.globalAlpha = fade;
+      const horizonX = p.x(h);
+      const cY = fabricY(h, h);
+      const gradient = ctx.createLinearGradient(p.x(model.xMax), 0, p.x(model.xMin), 0);
+      gradient.addColorStop(0, "rgba(198,140,255,0.02)");
+      gradient.addColorStop(0.45, "rgba(198,140,255,0.04)");
+      gradient.addColorStop(0.72, "rgba(198,140,255,0.12)");
+      gradient.addColorStop(1, "rgba(198,140,255,0.22)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(Math.min(horizonX, p.x(model.xMax)), p.y(model.yMax), Math.abs(p.x(model.xMax) - horizonX), p.y(model.yMin) - p.y(model.yMax));
+
+      ctx.beginPath();
+      let started = false;
+      for (let i = 0; i <= 420; i++) {
+        const x = h + 0.04 + (i / 420) * (model.xMax - h - 0.04);
+        const gamma = Math.min(8, gammaAtRadius(x, h));
+        const y = Math.min(model.yMax - 0.08, cY + (gamma - 1) * 0.38);
+        const px = p.x(x);
+        const py = p.y(y);
+        if (!started) {
+          ctx.moveTo(px, py);
+          started = true;
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+      ctx.strokeStyle = "rgba(198,140,255,0.88)";
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      ctx.lineTo(p.x(model.xMax), p.y(cY));
+      ctx.lineTo(p.x(h + 0.04), p.y(cY));
+      ctx.closePath();
+      ctx.fillStyle = "rgba(198,140,255,0.08)";
+      ctx.fill();
+
+      ctx.fillStyle = "rgba(198,140,255,0.95)";
+      ctx.font = "13px system-ui";
+      ctx.fillText("dilatacion temporal", p.x(model.xMax) + 12, p.y(Math.min(model.yMax - 0.2, cY + 0.42)));
+      ctx.restore();
+    }
+
+    function drawFabric(p, h, fade = 1) {
+      if (fade <= 0.01) return;
+      ctx.save();
+      ctx.globalAlpha = fade;
+      const fabric = getComputedStyle(document.documentElement).getPropertyValue("--fabric").trim();
+      const soft = getComputedStyle(document.documentElement).getPropertyValue("--fabric-soft").trim();
+
+      ctx.beginPath();
+      let started = false;
+      for (let i = 0; i <= 520; i++) {
+        const x = model.xMin + (i / 520) * (model.xMax - model.xMin);
+        const y = Math.max(model.yMin, fabricY(x, h));
+        const px = p.x(x);
+        const py = p.y(y);
+        if (!started) {
+          ctx.moveTo(px, py);
+          started = true;
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+      ctx.strokeStyle = fabric;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      ctx.lineTo(p.x(model.xMax), p.y(model.yMin));
+      ctx.lineTo(p.x(model.xMin), p.y(model.yMin));
+      ctx.closePath();
+      ctx.fillStyle = soft;
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(176,134,255,0.85)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([6, 7]);
+      ctx.beginPath();
+      ctx.moveTo(p.x(model.xMin), p.y(model.yMin));
+      ctx.lineTo(p.x(model.xMin), p.y(model.yMax));
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = "rgba(176,134,255,0.92)";
+      ctx.font = "13px system-ui";
+      ctx.fillText("singularidad idealizada", p.x(model.xMin) - 142, p.y(model.yMin) - 10);
+      ctx.restore();
+    }
+
+    function drawGargantua(p, h, fade = 1) {
+      const image = images.gargantua;
+      if (!image.complete || !image.naturalWidth || fade <= 0.01) return;
+
+      const singularityX = p.x(model.xMin);
+      const horizonX = p.x(h);
+      const horizonY = p.y(fabricY(h, h));
+      const spanToHorizon = Math.max(60, singularityX - horizonX);
+      const anchor = Math.min(0.94, Math.max(0.06, GARGANTUA_HORIZON_ANCHOR_X));
+      const width = spanToHorizon / (1 - anchor);
+      const height = width * (image.naturalHeight / image.naturalWidth);
+      const x = singularityX - width;
+      const y = horizonY - height * 0.53;
+
+      ctx.save();
+      ctx.globalAlpha = GARGANTUA_OPACITY * fade;
+      ctx.drawImage(image, x, y, width, height);
+      ctx.restore();
+    }
+
+    function drawHawkingRadiation(p, h, t, fade = 1) {
+      const startX = p.x(h);
+      const endX = p.x(model.xMax);
+      const travel = startX - endX;
+      if (travel < 20 || fade <= 0.01) return;
+
+      ctx.save();
+      ctx.globalAlpha = fade;
+      const radiation = "rgba(96, 232, 255, 0.82)";
+      ctx.strokeStyle = radiation;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([]);
+
+      for (let band = 0; band < 3; band++) {
+        const baseY = p.y(model.yMax - 0.86 - band * 0.28);
+        ctx.beginPath();
+        for (let i = 0; i <= 120; i++) {
+          const s = i / 120;
+          const x = startX - travel * s;
+          const wave = Math.sin(s * Math.PI * 7 + t * 3.2 + band * 0.9) * (5 + band);
+          const y = baseY + wave;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        const headX = endX + 7;
+        const headY = baseY + Math.sin(Math.PI * 7 + t * 3.2 + band * 0.9) * (5 + band);
+        ctx.fillStyle = radiation;
+        ctx.beginPath();
+        ctx.moveTo(headX - 12, headY);
+        ctx.lineTo(headX + 3, headY - 7);
+        ctx.lineTo(headX + 3, headY + 7);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      ctx.fillStyle = "rgba(96, 232, 255, 0.95)";
+      ctx.font = "13px system-ui";
+      ctx.fillText("radiacion Hawking", endX + 18, p.y(model.yMax - 1.44));
+      ctx.restore();
+    }
+
+    function drawHorizon(p, h, clockX, beta, t, fade = 1) {
+      if (fade <= 0.01) return;
+      const hx = p.x(h);
+      const hy = p.y(fabricY(h, h));
+      const horizon = getComputedStyle(document.documentElement).getPropertyValue("--horizon").trim();
+
+      ctx.save();
+      ctx.globalAlpha = fade;
+      ctx.strokeStyle = horizon;
+      ctx.lineWidth = 2.5;
+      ctx.setLineDash([8, 6]);
+      ctx.beginPath();
+      ctx.moveTo(hx, p.y(model.yMin));
+      ctx.lineTo(hx, p.y(model.yMax));
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = horizon;
+      ctx.beginPath();
+      ctx.arc(hx, hy, 5, 0, Math.PI * 2);
+      ctx.fill();
+
+      drawHawkingRadiation(p, h, t, fade);
+
+      const cColor = "#9fb7ff";
+      ctx.strokeStyle = cColor;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(p.x(model.xMax), hy);
+      ctx.lineTo(p.x(model.xMin), hy);
+      ctx.stroke();
+      ctx.font = "13px system-ui";
+      ctx.fillStyle = horizon;
+      ctx.fillText("horizonte aparente", hx - 48, p.y(model.yMax) + 18);
+      ctx.restore();
+    }
+
+    function drawArrow(x1, y1, x2, y2, color) {
+      const angle = Math.atan2(y2 - y1, x2 - x1);
+      const head = 9;
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x2 - head * Math.cos(angle - 0.55), y2 - head * Math.sin(angle - 0.55));
+      ctx.lineTo(x2 - head * Math.cos(angle + 0.55), y2 - head * Math.sin(angle + 0.55));
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawPoint(p, x, h, color, label, radius = 7, velocityFraction = null) {
+      const y = fabricY(x, h);
+      const px = p.x(x);
+      const py = p.y(y);
+      ctx.save();
+      const sprite = velocityFraction === null ? images.brand : images.cooper;
+      if (sprite.complete && sprite.naturalWidth) {
+        const size = SPRITE_SIZE;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(px, py, size / 2, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(sprite, px - size / 2, py - size / 2, size, size);
+        ctx.restore();
+        ctx.strokeStyle = "rgba(0,0,0,0.58)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(px, py, size / 2, 0, Math.PI * 2);
+        ctx.stroke();
+      } else {
+        ctx.fillStyle = color;
+        ctx.strokeStyle = "rgba(0,0,0,0.45)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(px, py, radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      }
+      ctx.fillStyle = "rgba(243,240,232,0.9)";
+      ctx.font = "13px system-ui";
+      ctx.fillText(label, px + SPRITE_SIZE / 2 + 8, py - 12);
+
+      if (velocityFraction !== null) {
+        const gamma = 1 / Math.sqrt(1 - velocityFraction * velocityFraction);
+        const gammaStrength = Math.min(1, (gamma - 1) / 3.5);
+        const potentialStrength = Math.min(1, Math.abs(fabricY(x, h)) / Math.max(Math.abs(fabricY(h, h)), 0.001));
+        const gravityLen = 16 + 72 * potentialStrength;
+        const dilationLen = 10 + 58 * gammaStrength;
+        const arrowAnchorX = px - SPRITE_SIZE / 2 - 8;
+        const gravityY = py - 9;
+        const dilationY = py + 9;
+        drawArrow(arrowAnchorX - gravityLen, gravityY, arrowAnchorX, gravityY, "rgba(159,215,255,0.92)");
+        drawArrow(arrowAnchorX, dilationY, arrowAnchorX - dilationLen, dilationY, "rgba(198,140,255,0.92)");
+
+        ctx.font = "12px system-ui";
+        ctx.fillStyle = "rgba(159,215,255,0.95)";
+        ctx.fillText("g", arrowAnchorX - gravityLen - 14, gravityY - 5);
+        ctx.fillStyle = "rgba(198,140,255,0.95)";
+        ctx.fillText("dT", arrowAnchorX - dilationLen - 20, dilationY + 4);
+      }
+      ctx.restore();
+    }
+
+    function drawGap(p, h, clockX) {
+      const y = Math.max(model.yMin + 0.42, Math.min(fabricY(clockX, h), fabricY(h, h)) - 0.64);
+      const yPx = p.y(y);
+      ctx.save();
+      ctx.strokeStyle = "rgba(255,255,255,0.46)";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(p.x(h), yPx);
+      ctx.lineTo(p.x(clockX), yPx);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = "rgba(243,240,232,0.76)";
+      ctx.font = "12px system-ui";
+      ctx.fillText("rc-rh", (p.x(h) + p.x(clockX)) / 2 - 18, yPx + 16);
+      ctx.restore();
+    }
+
+    function drawEquation(p, h, clockX, gap) {
+      ctx.save();
+      ctx.fillStyle = "rgba(16,18,22,0.72)";
+      ctx.strokeStyle = "rgba(255,255,255,0.12)";
+      ctx.lineWidth = 1;
+      const boxW = Math.min(480, p.width - 52);
+      const boxH = 82;
+      const x = 24;
+      const y = p.height - boxH - 24;
+      ctx.beginPath();
+      ctx.roundRect(x, y, boxW, boxH, 8);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "rgba(243,240,232,0.92)";
+      ctx.font = "14px Cascadia Code, Consolas, monospace";
+      ctx.fillText("curva: y = -2.4 r_h(t)^3 / r^2", x + 14, y + 27);
+      ctx.fillText("Cooper: rc-rh > 0", x + 14, y + 50);
+      ctx.fillStyle = gap > 0.08 ? "rgba(141,240,163,0.94)" : "rgba(255,207,90,0.96)";
+      ctx.fillText("no hay cruce: rc-rh no llega a cero", x + 14, y + 73);
+      ctx.restore();
+    }
+
+    function step(dt) {
+      const evapSpeed = Number(ui.evapSpeed.value);
+      const fallSpeed = Number(ui.fallSpeed.value);
+      const hPrev = horizonAt(time);
+      const nextTime = time + dt;
+      const hNext = horizonAt(nextTime);
+      const k = Math.max(0, (hPrev - hNext) / Math.max(dt, 1e-4));
+
+      const v = model.nullSpeed * fallSpeed;
+      const derivative = k - v * delta / Math.max(hPrev + delta, 0.001);
+      delta = Math.max(0.015, delta + derivative * dt);
+      time = nextTime;
+
+      if ((time * evapSpeed) > model.evapDuration * 0.985) {
+        time = 0;
+        delta = model.clockX0 - model.h0;
+      }
+    }
+
+    function velocityFraction(h, gap) {
+      const fallSpeed = Number(ui.fallSpeed.value);
+      const clockRadius = h + gap;
+      const localFreefall = Math.sqrt(Math.min(1, h / Math.max(clockRadius, 0.001)));
+      const beta = localFreefall * Math.min(1.08, fallSpeed);
+      return Math.min(0.999, Math.max(0, beta));
+    }
+
+    function draw() {
+      const p = projector();
+      const h = horizonAt(time);
+      const mass = massAt(time);
+      const clockX = h + delta;
+      const observerX = model.observerX;
+      const beta = velocityFraction(h, delta);
+      const gamma = 1 / Math.sqrt(1 - beta * beta);
+      const fade = finalFade(time);
+
+      ctx.clearRect(0, 0, p.width, p.height);
+      drawGrid(p);
+      drawGammaField(p, h, fade);
+      drawGargantua(p, h, fade);
+      drawFabric(p, h, fade);
+      drawHorizon(p, h, clockX, beta, time, fade);
+      drawGap(p, h, clockX);
+      drawPoint(p, observerX, h, getComputedStyle(document.documentElement).getPropertyValue("--observer").trim(), "Dra. Brand", 6);
+      drawPoint(p, clockX, h, getComputedStyle(document.documentElement).getPropertyValue("--clock").trim(), "Cooper", 8, beta);
+      drawEquation(p, h, clockX, delta);
+
+      ui.time.textContent = time.toFixed(1);
+      ui.mass.textContent = mass.toFixed(3);
+      ui.horizon.textContent = h.toFixed(2);
+      ui.gap.textContent = delta.toFixed(2);
+      ui.speed.textContent = `${(beta * 100).toFixed(1)}% c`;
+      ui.gamma.textContent = gamma.toFixed(gamma < 10 ? 2 : 1);
+      ui.state.textContent = delta > 0.05 ? "fuera" : "limite";
+      ui.state.style.color = delta > 0.05 ? "var(--ok)" : "var(--horizon)";
+      ui.evapSpeedValue.textContent = `${Number(ui.evapSpeed.value).toFixed(2)}x`;
+      ui.fallSpeedValue.textContent = `${Number(ui.fallSpeed.value).toFixed(2)}x`;
+    }
+
+    function loop(now) {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (running) step(dt);
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    ui.toggle.addEventListener("click", () => {
+      running = !running;
+      ui.toggle.textContent = running ? "Pausar" : "Continuar";
+      last = performance.now();
+    });
+
+    ui.reset.addEventListener("click", reset);
+    window.addEventListener("resize", resize);
+
+    resize();
+    reset();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
